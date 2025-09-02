@@ -1,7 +1,7 @@
 // === INIT EMAILJS ===
 emailjs.init("TON_PUBLIC_KEY"); // Remplace par ton public key EmailJS
 
-// === PORTFOLIO ET SERVICES SMMA ===
+// === SERVICES SMMA ===
 const services = [
     { 
         title: "Gestion Facebook Ads", 
@@ -31,6 +31,7 @@ const services = [
 ];
 
 const companyList = document.getElementById('company-list');
+
 function displayServices(list) {
     companyList.innerHTML = '';
     list.forEach(service => {
@@ -40,4 +41,57 @@ function displayServices(list) {
             <h3>${service.title}</h3>
             <p>${service.description}</p>
             <a href="${service.contact}" class="btn-contact">Contacter</a>
+        `;
+        companyList.appendChild(card);
+    });
+}
+displayServices(services);
 
+// === ANIMATION SERVICES AU SCROLL ===
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+    const triggerBottom = window.innerHeight * 0.85;
+    cards.forEach(card => {
+        const cardTop = card.getBoundingClientRect().top;
+        if(cardTop < triggerBottom){
+            card.style.opacity = 1;
+            card.style.transform = 'translateY(0)';
+        } else {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+        }
+    });
+});
+
+// === FORMULAIRE CONTACT AVEC EMAILJS ===
+const form = document.getElementById('contact-form');
+const formMessage = document.getElementById('form-message');
+
+form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const templateParams = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        company_name: document.getElementById('company').value,
+        message: document.getElementById('message').value
+    };
+
+    emailjs.send('TON_SERVICE_ID','TON_TEMPLATE_ID', templateParams)
+        .then(response => {
+            formMessage.style.color = 'green';
+            formMessage.textContent = "Merci ! Votre message a été envoyé.";
+            form.reset();
+        }, error => {
+            formMessage.style.color = 'red';
+            formMessage.textContent = "Une erreur est survenue, réessayez.";
+        });
+});
+
+// === SMOOTH SCROLL MENU ===
+document.querySelectorAll('header nav ul li a').forEach(link => {
+    link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+    });
+});
