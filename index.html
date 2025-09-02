@@ -2,19 +2,25 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>SMMA Info Finder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence SMMA</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>SMMA Info Finder</h1>
-    <p>Recherche des infos sur des entreprises</p>
+    <header>
+        <h1>Agence SMMA</h1>
+        <nav>
+            <input type="text" id="search" placeholder="Rechercher une entreprise...">
+        </nav>
+    </header>
 
-    <input type="text" id="companyInput" placeholder="Nom de l'entreprise...">
-    <button id="searchBtn">Rechercher</button>
+    <main id="company-list">
+        <!-- Les cartes entreprises seront générées ici par JS -->
+    </main>
 
-    <div id="results">
-        <p>Les résultats apparaîtront ici...</p>
-    </div>
+    <footer>
+        <p>© 2025 Agence SMMA - Tous droits réservés</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
