@@ -11,6 +11,10 @@ const searchInput = document.getElementById('search');
 
 function displayCompanies(list) {
     companyList.innerHTML = '';
+    if(list.length === 0){
+        companyList.innerHTML = '<p style="text-align:center; width:100%;">Aucune entreprise trouvée</p>';
+        return;
+    }
     list.forEach(company => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -27,8 +31,10 @@ function displayCompanies(list) {
 displayCompanies(companies);
 
 // Recherche dynamique
-searchInput.addEventListener('input', (e) => {
-    const value = e.target.value.toLowerCase();
-    const filtered = companies.filter(c => c.name.toLowerCase().includes(value) || c.type.toLowerCase().includes(value));
+searchInput.addEventListener('keyup', () => {
+    const value = searchInput.value.toLowerCase();
+    const filtered = companies.filter(c => 
+        c.name.toLowerCase().includes(value) || c.type.toLowerCase().includes(value)
+    );
     displayCompanies(filtered);
 });
