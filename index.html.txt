@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>SMMA Info Finder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>SMMA Info Finder</h1>
+    <p>Recherche des infos sur des entreprises</p>
+
+    <input type="text" id="companyInput" placeholder="Nom de l'entreprise...">
+    <button id="searchBtn">Rechercher</button>
+
+    <div id="results">
+        <p>Les résultats apparaîtront ici...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
