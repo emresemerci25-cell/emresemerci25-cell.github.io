@@ -1,18 +1,114 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Agence SMMA Pro</title>
-  <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f8fb; --text:#1f2937; --muted:#6b7280;
+      --primary:#2563eb; --primary-700:#1e40af; --ring: rgba(37,99,235,.25);
+      --dark-1:#0b1b3f; --dark-2:#0f3578; --card:#ffffff; --radius:14px;
+    }
+    *{box-sizing:border-box} html,body{margin:0;padding:0}
+    body{font-family:'Montserrat',system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .kicker{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:.6rem}
+    h1{font-size:clamp(1.9rem,3.5vw,3.2rem);line-height:1.15;margin:.2rem 0 1rem}
+    h2{font-size:clamp(1.5rem,2.4vw,2.2rem);margin:.4rem 0 1.5rem}
+    h3{font-size:1.05rem;margin:.6rem 0 .4rem}
+    .highlight{color:var(--primary)}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;border-radius:999px;padding:.9rem 1.2rem;font-weight:700;text-decoration:none;border:1px solid transparent;transition:.2s}
+    .btn-small{padding:.55rem .9rem;font-size:.9rem}
+    .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-700)}
+    .btn-ghost{background:#fff;border-color:#e5e7eb;color:var(--text)} .btn-ghost:hover{border-color:#cbd5e1}
+    .form input,.form textarea{width:100%;padding:0.9rem 1rem;border:1px solid #e5e7eb;border-radius:12px;background:#fff}
+    .form textarea{min-height:130px;resize:vertical}
+    .form input:focus,.form textarea:focus{outline:0;box-shadow:0 0 0 6px var(--ring);border-color:var(--primary)}
+    .form-message{margin-top:10px;font-weight:700}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eef2f7}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .logo-svg{height:40px}
+    .nav{display:flex;gap:22px;align-items:center}
+    .nav a{color:#374151;text-decoration:none;font-weight:600}
+    .nav a:hover{color:var(--primary)}
+    .burger{display:none;background:transparent;border:0;gap:6px;flex-direction:column}
+    .burger span{display:block;width:24px;height:2px;background:#111;border-radius:2px}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#ffffff, #eef3ff)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 0}
+    .hero-left .sub{color:var(--muted);margin:1rem 0 1.3rem}
+    .hero-right img{border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+
+    /* Sections */
+    .section{padding:80px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;border:1px solid #eef2f7;box-shadow:0 6px 18px rgba(10,20,40,.06);display:flex;flex-direction:column;gap:10px;transition:transform .2s, box-shadow .2s;opacity:0;transform:translateY(30px)}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(10,20,40,.1)}
+    .card img{height:140px;object-fit:cover;border-radius:10px}
+    .card p{color:#475569;font-size:.98rem}
+    .card .btn{margin-top:auto}
+
+    /* Dark section */
+    .dark{background:linear-gradient(180deg,var(--dark-2),var(--dark-1));color:#eaf2ff}
+    .dark h2{color:#fff}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px}
+    .feature{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
+    .feature .icon{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.12);display:grid;place-items:center;margin-bottom:10px}
+    .feature svg{fill:#fff;width:22px;height:22px}
+    .feature p{color:#c7d6ff}
+
+    /* Portfolio */
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .portfolio img{border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);transition:transform .2s}
+    .portfolio img:hover{transform:scale(1.02)}
+
+    /* Testimonials */
+    .testimonial-wrap{max-width:780px;margin:18px auto 0}
+    .testimonial{background:#fff;border:1px solid #eef2f7;border-radius:18px;padding:26px;box-shadow:0 8px 22px rgba(10,20,40,.06);min-height:150px}
+    .testi-row{display:flex;gap:14px;align-items:center;margin-bottom:8px}
+    .testi-row img{width:50px;height:50px;border-radius:50%}
+    .testi-text{color:#374151;font-style:italic}
+    .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1;border:0}
+    .dot.active{background:var(--primary)}
+
+    /* Footer */
+    .footer{padding:36px 0;border-top:1px solid #eef2f7;background:#fff;text-align:center}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .portfolio{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 760px){
+      .nav{position:fixed;inset:64px 0 0 0;background:#fff;display:flex;flex-direction:column;gap:18px;padding:18px;transform:translateY(-120%);transition:.25s;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+      .nav.open{transform:translateY(0)}
+      .burger{display:flex}
+      .hero-grid{grid-template-columns:1fr;gap:24px;padding:56px 0}
+      .cards{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .portfolio{grid-template-columns:1fr}
+    }
+  </style>
 </head>
 <body>
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
-      <a class="logo" href="#hero">
-        <img src="https://i.imgur.com/1Q7QO2C.png" alt="Agence SMMA Pro" height="40">
+      <a class="logo" href="#hero" aria-label="Accueil">
+        <!-- LOGO INLINE (jamais cassé) -->
+        <svg class="logo-svg" viewBox="0 0 180 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Agence SMMA Pro">
+          <rect x="0" y="0" width="40" height="40" rx="8" fill="#2563eb"/>
+          <path d="M12 26 L20 12 L28 26 Z" fill="#fff" opacity=".95"/>
+          <text x="48" y="27" font-family="Montserrat, Arial" font-size="18" font-weight="800" fill="#1e40af">Agence SMMA Pro</text>
+        </svg>
       </a>
       <nav class="nav" id="nav">
         <a href="#services">Services</a>
@@ -20,9 +116,7 @@
         <a href="#testimonials">Témoignages</a>
         <a href="#contact" class="btn btn-small btn-primary">Nous contacter</a>
       </nav>
-      <button class="burger" id="burger" aria-label="Ouvrir le menu">
-        <span></span><span></span><span></span>
-      </button>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
     </div>
   </header>
 
@@ -39,7 +133,7 @@
         </div>
       </div>
       <div class="hero-right">
-        <img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a4?q=80&w=1400&auto=format&fit=crop" alt="Marketing digital">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a4?q=80&w=1400&auto=format&fit=crop" alt="Marketing digital">
       </div>
     </div>
   </section>
@@ -59,49 +153,37 @@
       <h2>Levier d’acquisition complet</h2>
       <div class="features">
         <div class="feature">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zM12 1a1 1 0 011 1v2a1 1 0 11-2 0V2a1 1 0 011-1zm0 19a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM3 11a1 1 0 011-1h2a1 1 0 110 2H4a1 1 0 01-1-1zm15 0a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1z"/></svg>
-          </div>
-          <h3>Audience</h3>
-          <p>Volumes pertinents grâce à créas testées en continu et ciblages précis.</p>
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zM12 1a1 1 0 011 1v2a1 1 0 11-2 0V2a1 1 0 011-1zm0 19a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM3 11a1 1 0 011-1h2a1 1 0 110 2H4a1 1 0 01-1-1zm15 0a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1z"/></svg></div>
+          <h3>Audience</h3><p>Volumes pertinents grâce à créas testées en continu et ciblages précis.</p>
         </div>
         <div class="feature">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/></svg>
-          </div>
-          <h3>Ciblage</h3>
-          <p>Intérêts, lookalikes, exclusions : on baisse le CPA, on scale ce qui marche.</p>
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/></svg></div>
+          <h3>Ciblage</h3><p>Intérêts, lookalikes, exclusions : on baisse le CPA, on scale ce qui marche.</p>
         </div>
         <div class="feature">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M17.65 6.35A8 8 0 004 12h2a6 6 0 016-6c1.7 0 3.2.7 4.24 1.76L13 11h7V4l-2.35 2.35zM18 12a6 6 0 01-6 6 5 5 0 01-4.24-2.24L11 13H4v7l2.35-2.35A8 8 0 0020 12h-2z"/></svg>
-          </div>
-          <h3>Remarketing</h3>
-          <p>Séquences multi-formats pour convertir les audiences chaudes.</p>
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M17.65 6.35A8 8 0 004 12h2a6 6 0 016-6c1.7 0 3.2.7 4.24 1.76L13 11h7V4l-2.35 2.35zM18 12a6 6 0 01-6 6 5 5 0 01-4.24-2.24L11 13H4v7l2.35-2.35A8 8 0 0020 12h-2z"/></svg></div>
+          <h3>Remarketing</h3><p>Séquences multi-formats pour convertir les audiences chaudes.</p>
         </div>
         <div class="feature">
-          <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5 1.5-1.5L9 14l9.5-9.5L20 6z"/></svg>
-          </div>
-          <h3>Conversion</h3>
-          <p>Optimisation créa, budget et landing pour transformer les clics en revenus.</p>
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5 1.5-1.5L9 14l9.5-9.5L20 6z"/></svg></div>
+          <h3>Conversion</h3><p>Optimisation créa, budget et landing pour transformer les clics en revenus.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
+  <!-- PORTFOLIO (images stables, campagnes 1 à 6) -->
   <section id="portfolio" class="section">
     <div class="container">
       <p class="kicker">RÉSULTATS</p>
       <h2>Quelques campagnes</h2>
       <div class="portfolio">
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Campagne 1">
-        <img src="https://images.unsplash.com/photo-1581093588401-8cbfbf28f244?q=80&w=1200&auto=format&fit=crop" alt="Campagne 2">
-        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437e1?q=80&w=1200&auto=format&fit=crop" alt="Campagne 3">
-        <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?q=80&w=1200&auto=format&fit=crop" alt="Campagne 4">
-        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1200&auto=format&fit=crop" alt="Campagne 5">
-        <img src="https://images.unsplash.com/photo-1556742111-3f66b99f0d93?q=80&w=1200&auto=format&fit=crop" alt="Campagne 6">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Campagne 1">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1581093588401-8cbfbf28f244?q=80&w=1200&auto=format&fit=crop" alt="Campagne 2">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1605902711622-cfb43c4437e1?q=80&w=1200&auto=format&fit=crop" alt="Campagne 3">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?q=80&w=1200&auto=format&fit=crop" alt="Campagne 4">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1200&auto=format&fit=crop" alt="Campagne 5">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556742111-3f66b99f0d93?q=80&w=1200&auto=format&fit=crop" alt="Campagne 6">
       </div>
     </div>
   </section>
@@ -141,7 +223,124 @@
     </div>
   </footer>
 
+  <!-- EmailJS + Script app -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script src="script.js"></script>
+  <script>
+    /* ===== Menu mobile ===== */
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', ()=> nav.classList.toggle('open'));
+
+    /* ===== Services ===== */
+    const SERVICES = [
+      { img:"https://images.unsplash.com/photo-1551281044-8e8d0a75d2d5?q=80&w=800&auto=format&fit=crop",
+        title:"Gestion Facebook Ads",
+        desc:"Création, A/B tests, scaling et baisse des CPA sur vos comptes Meta." },
+      { img:"https://images.unsplash.com/photo-1596524430615-b46475ddff6a?q=80&w=800&auto=format&fit=crop",
+        title:"Instagram Ads",
+        desc:"Formats Reels, carrousels & UGC pour booster la conversion sur mobile." },
+      { img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
+        title:"Acquisition clients",
+        desc:"Stratégies multi-canales et funnels pour nourrir votre pipe commercial." },
+      { img:"https://images.unsplash.com/photo-1581092160562-040f07c96f4b?q=80&w=800&auto=format&fit=crop",
+        title:"Optimisation du ROI",
+        desc:"Pilotage budget, enchères & créas pour maximiser le ROAS." },
+      { img:"https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop",
+        title:"Tracking & Data",
+        desc:"Pixels, Conversions API, événements et dashboarding clair." },
+      { img:"https://images.unsplash.com/photo-1590402494682-cd06e3f7c7f3?q=80&w=800&auto=format&fit=crop",
+        title:"Reporting",
+        desc:"Rapports hebdo clairs + recommandations actionnables." },
+    ];
+    const serviceList = document.getElementById('service-list');
+    serviceList.innerHTML = SERVICES.map(s => `
+      <article class="card">
+        <img loading="lazy" src="${s.img}" alt="${s.title}">
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        <a class="btn btn-ghost" href="#contact">Contacter</a>
+      </article>
+    `).join('');
+
+    /* Apparition des cards au scroll */
+    const onScrollReveal = () => {
+      document.querySelectorAll('.card').forEach(card=>{
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight * 0.88){
+          card.style.opacity = 1;
+          card.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    onScrollReveal(); window.addEventListener('scroll', onScrollReveal);
+
+    /* ===== Testimonials slider ===== */
+    const TESTIMONIALS = [
+      { img:"https://i.pravatar.cc/100?img=12", name:"Sophie L.", text:"« +40% de CA en 8 semaines sur nos comptes Meta. »" },
+      { img:"https://i.pravatar.cc/100?img=18", name:"Karim B.",  text:"« Pilotage pro et réactif. On tient un ROAS propre. »" },
+      { img:"https://i.pravatar.cc/100?img=7",  name:"Laura M.",  text:"« Setup tracking nickel, rapports limpides. »" },
+    ];
+    const testi = document.getElementById('testimonial');
+    const dots = document.getElementById('dots');
+    let step = 0;
+    function renderTestimonial(i){
+      const t = TESTIMONIALS[i];
+      testi.innerHTML = `
+        <div class="testi-row">
+          <img src="${t.img}" alt="${t.name}">
+          <div>
+            <strong>${t.name}</strong><br/>
+            <span class="testi-text">${t.text}</span>
+          </div>
+        </div>`;
+      dots.innerHTML = TESTIMONIALS.map((_,idx)=>`<button class="dot ${idx===i?'active':''}" data-i="${idx}" aria-label="Slide ${idx+1}"></button>`).join('');
+    }
+    renderTestimonial(step);
+    setInterval(()=>{ step = (step+1)%TESTIMONIALS.length; renderTestimonial(step); }, 5000);
+    dots.addEventListener('click', (e)=>{ if(e.target.matches('.dot')){ step=+e.target.dataset.i; renderTestimonial(step);} });
+
+    /* ===== Smooth scroll ===== */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id).scrollIntoView({behavior:'smooth', block:'start'});
+          nav.classList.remove('open');
+        }
+      });
+    });
+
+    /* ===== EmailJS (formulaire) ===== */
+    emailjs.init("0eZWzdjul5uTBiqDr"); // PUBLIC KEY
+    const form = document.getElementById('contact-form');
+    const formMsg = document.getElementById('form-message');
+
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      formMsg.textContent = "Envoi en cours...";
+      formMsg.style.color = "#374151";
+
+      const templateParams = {
+        from_name: document.getElementById('name').value,
+        from_email: document.getElementById('email').value,
+        company_name: document.getElementById('company').value,
+        message: document.getElementById('message').value,
+        to_email: "emresemerci25@gmail.com" // au cas où ton template le lit
+      };
+
+      try{
+        await emailjs.send("service_sokw6ol","template_jtqrf5s", templateParams);
+        formMsg.textContent = "Merci ! Votre message a été envoyé.";
+        formMsg.style.color = "green";
+        form.reset();
+      }catch(err){
+        formMsg.textContent = "Erreur d’envoi. Vérifie EmailJS (service, template, clés).";
+        formMsg.style.color = "crimson";
+        console.error(err);
+      }
+    });
+  </script>
 </body>
 </html>
+
