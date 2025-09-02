@@ -1,180 +1,263 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SMC MARKETING</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #fff;
-      color: #333;
+    :root{
+      --bg:#f7f8fb; --text:#1f2937; --muted:#6b7280;
+      --primary:#2563eb; --primary-700:#1e40af; --ring: rgba(37,99,235,.25);
+      --dark-1:#0b1b3f; --dark-2:#0f3578; --card:#ffffff; --radius:14px;
     }
-    header {
-      background: #111;
-      color: #fff;
-      padding: 15px 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    *{box-sizing:border-box} html,body{margin:0;padding:0}
+    body{font-family:'Montserrat',system-ui,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    .kicker{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--primary);font-weight:700;margin-bottom:.6rem}
+    h1{font-size:clamp(1.9rem,3.5vw,3.2rem);line-height:1.15;margin:.2rem 0 1rem}
+    h2{font-size:clamp(1.5rem,2.4vw,2.2rem);margin:.4rem 0 1.5rem}
+    h3{font-size:1.05rem;margin:.6rem 0 .4rem}
+    .highlight{color:var(--primary)}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;border-radius:999px;padding:.9rem 1.2rem;font-weight:700;text-decoration:none;border:1px solid transparent;transition:.2s}
+    .btn-small{padding:.55rem .9rem;font-size:.9rem}
+    .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-700)}
+    .btn-ghost{background:#fff;border-color:#e5e7eb;color:var(--text)} .btn-ghost:hover{border-color:#cbd5e1}
+    .form input,.form textarea{width:100%;padding:0.9rem 1rem;border:1px solid #e5e7eb;border-radius:12px;background:#fff}
+    .form textarea{min-height:130px;resize:vertical}
+    .form input:focus,.form textarea:focus{outline:0;box-shadow:0 0 0 6px var(--ring);border-color:var(--primary)}
+    .form-message{margin-top:10px;font-weight:700}
+
+    /* Header */
+    .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eef2f7}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;min-height:64px}
+    .nav{display:flex;gap:22px;align-items:center}
+    .nav a{color:#374151;text-decoration:none;font-weight:600}
+    .nav a:hover{color:var(--primary)}
+    .burger{display:none;background:transparent;border:0;gap:6px;flex-direction:column}
+    .burger span{display:block;width:24px;height:2px;background:#111;border-radius:2px}
+
+    /* Hero */
+    .hero{background:linear-gradient(180deg,#ffffff, #eef3ff)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 0}
+    .hero-left .sub{color:var(--muted);margin:1rem 0 1.3rem}
+    .hero-right img{border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.08)}
+
+    /* Sections */
+    .section{padding:80px 0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;border:1px solid #eef2f7;box-shadow:0 6px 18px rgba(10,20,40,.06);display:flex;flex-direction:column;gap:10px;transition:transform .2s, box-shadow .2s;opacity:0;transform:translateY(30px)}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(10,20,40,.1)}
+    .card img{height:140px;object-fit:cover;border-radius:10px}
+    .card p{color:#475569;font-size:.98rem}
+    .card .btn{margin-top:auto}
+
+    /* Dark section */
+    .dark{background:linear-gradient(180deg,var(--dark-2),var(--dark-1));color:#eaf2ff}
+    .dark h2{color:#fff}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px}
+    .feature{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
+    .feature .icon{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.12);display:grid;place-items:center;margin-bottom:10px}
+    .feature svg{fill:#fff;width:22px;height:22px}
+    .feature p{color:#c7d6ff}
+
+    /* Portfolio */
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+    .portfolio img{border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);transition:transform .2s}
+    .portfolio img:hover{transform:scale(1.02)}
+
+    /* Testimonials */
+    .testimonial-wrap{max-width:780px;margin:18px auto 0}
+    .testimonial{background:#fff;border:1px solid #eef2f7;border-radius:18px;padding:26px;box-shadow:0 8px 22px rgba(10,20,40,.06);min-height:150px}
+    .testi-row{display:flex;gap:14px;align-items:center;margin-bottom:8px}
+    .testi-row img{width:50px;height:50px;border-radius:50%}
+    .testi-text{color:#374151;font-style:italic}
+    .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1;border:0}
+    .dot.active{background:var(--primary)}
+
+    /* Footer */
+    .footer{padding:36px 0;border-top:1px solid #eef2f7;background:#fff;text-align:center}
+
+    /* Responsive */
+    @media (max-width: 1024px){
+      .cards{grid-template-columns:repeat(2,1fr)}
+      .features{grid-template-columns:repeat(2,1fr)}
+      .portfolio{grid-template-columns:repeat(2,1fr)}
     }
-    header .logo-container {
-      display: flex;
-      align-items: center;
-    }
-    header img {
-      width: 40px;
-      margin-right: 10px;
-    }
-    nav a {
-      color: #fff;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 50px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-    }
-    .services, .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .service, .testimonial {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    .service img {
-      width: 100%;
-      border-radius: 10px;
-      margin-bottom: 15px;
-    }
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-    }
-    form input, form textarea, form button {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    form button {
-      background: #ff6600;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    form button:hover {
-      background: #e65c00;
+    @media (max-width: 760px){
+      .nav{position:fixed;inset:64px 0 0 0;background:#fff;display:flex;flex-direction:column;gap:18px;padding:18px;transform:translateY(-120%);transition:.25s;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+      .nav.open{transform:translateY(0)}
+      .burger{display:flex}
+      .hero-grid{grid-template-columns:1fr;gap:24px;padding:56px 0}
+      .cards{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr}
+      .portfolio{grid-template-columns:1fr}
     }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("0eZWzdjul5uTBiqDr"); // Public Key
-    })();
-    function sendMail(event) {
-      event.preventDefault();
-      emailjs.sendForm('service_sokw6ol', 'template_jtqrf5s', event.target)
-      .then(() => {
-        alert('Message envoyé !');
-        event.target.reset();
-      }, (error) => {
-        alert('Erreur : ' + JSON.stringify(error));
-      });
-    }
-  </script>
 </head>
 <body>
-
-<header>
-  <div class="logo-container">
-    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo">
-    <h1>SMC MARKETING</h1>
-  </div>
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#avis">Avis</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <h2 style="text-align:center;">Boostez Votre Business Avec SMC MARKETING</h2>
-  <p style="text-align:center; max-width:800px; margin:auto;">Nous créons des stratégies digitales puissantes pour propulser votre marque et augmenter vos ventes.</p>
-</section>
-
-<section id="services">
-  <h2>Nos Services</h2>
-  <div class="services">
-    <div class="service">
-      <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Facebook Ads">
-      <h3>Facebook Ads</h3>
-      <p>Campagnes Meta optimisées pour plus de ventes et moins de coûts.</p>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#hero" aria-label="Accueil">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" style="height:50px;">
+          <rect x="0" y="0" width="60" height="60" rx="12" fill="#2563eb"/>
+          <text x="30" y="38" text-anchor="middle" font-size="28" font-family="Montserrat, Arial" font-weight="800" fill="#fff">SMC</text>
+          <text x="80" y="38" font-size="20" font-family="Montserrat, Arial" font-weight="700" fill="#1e40af">MARKETING</text>
+        </svg>
+      </a>
+      <nav class="nav" id="nav">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Avis</a>
+        <a href="#contact" class="btn btn-small btn-primary">Nous contacter</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
     </div>
-    <div class="service">
-      <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?q=80&w=800&auto=format&fit=crop" alt="Instagram Ads">
-      <h3>Instagram Ads</h3>
-      <p>Stratégies Instagram percutantes pour booster votre visibilité.</p>
-    </div>
-    <div class="service">
-      <img src="https://images.unsplash.com/photo-1522205408450-add114ad53fe?q=80&w=800&auto=format&fit=crop" alt="Marketing Digital">
-      <h3>Marketing Digital</h3>
-      <p>Une stratégie complète pour propulser votre business en ligne.</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section id="avis">
-  <h2>Avis Clients</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      ⭐⭐⭐⭐⭐<br>
-      "SMC MARKETING a doublé nos ventes en 2 mois, une équipe pro et efficace !"
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-left">
+        <p class="kicker">FACEBOOK & INSTAGRAM ADS</p>
+        <h1>Boostez vos ventes avec <span class="highlight">SMC MARKETING</span></h1>
+        <p class="sub">Agence spécialisée en publicités Meta pour générer des clients qualifiés et développer votre chiffre d'affaires.</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Audit gratuit</a>
+          <a href="#portfolio" class="btn btn-ghost">Voir nos résultats</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop" alt="Marketing digital">
+      </div>
     </div>
-    <div class="testimonial">
-      ⭐⭐⭐⭐⭐<br>
-      "Une stratégie claire, des résultats visibles. Je recommande à 100%."
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <p class="kicker">EXPERTISES</p>
+      <h2>Nos Services</h2>
+      <div class="cards" id="service-list"></div>
     </div>
-    <div class="testimonial">
-      ⭐⭐⭐⭐⭐<br>
-      "Excellent accompagnement, ils ont transformé notre image en ligne."
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <p class="kicker">RÉSULTATS</p>
+      <h2>Quelques Campagnes</h2>
+      <div class="portfolio">
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Campagne 1">
+        <img src="https://images.unsplash.com/photo-1581093588401-8cbfbf28f244?q=80&w=1200&auto=format&fit=crop" alt="Campagne 2">
+        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437e1?q=80&w=1200&auto=format&fit=crop" alt="Campagne 3">
+        <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?q=80&w=1200&auto=format&fit=crop" alt="Campagne 4">
+        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1200&auto=format&fit=crop" alt="Campagne 5">
+        <img src="https://images.unsplash.com/photo-1556742111-3f66b99f0d93?q=80&w=1200&auto=format&fit=crop" alt="Campagne 6">
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="contact">
-  <h2>Contactez-nous</h2>
-  <form onsubmit="sendMail(event)">
-    <input type="text" name="name" placeholder="Votre nom" required>
-    <input type="email" name="email" placeholder="Votre email" required>
-    <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
-    <button type="submit">Envoyer</button>
-  </form>
-</section>
+  <!-- AVIS CLIENTS -->
+  <section id="testimonials" class="section">
+    <div class="container">
+      <p class="kicker">ILS TÉMOIGNENT</p>
+      <h2>Ce que disent nos clients</h2>
+      <div class="testimonial-wrap">
+        <div class="testimonial" id="testimonial"></div>
+        <div class="dots" id="dots"></div>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <p>&copy; 2025 SMC MARKETING - Tous droits réservés.</p>
-</footer>
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <p class="kicker">CONTACT</p>
+      <h2>Contactez SMC MARKETING</h2>
+      <form id="contact-form" class="form">
+        <input type="text" id="name" placeholder="Votre nom" required>
+        <input type="email" id="email" placeholder="Votre email" required>
+        <input type="text" id="company" placeholder="Nom de votre entreprise" required>
+        <textarea id="message" placeholder="Votre message" required></textarea>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+      <p id="form-message" class="form-message"></p>
+    </div>
+  </section>
 
-</body>
-</html>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 SMC MARKETING — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    burger.addEventListener('click', ()=> nav.classList.toggle('open'));
+
+    const SERVICES = [
+      { img:"https://images.unsplash.com/photo-1596524430615-b46475ddff6a?q=80&w=800&auto=format&fit=crop",
+        title:"Facebook Ads",
+        desc:"Optimisation complète de vos campagnes Meta pour un ROI maximal." },
+      { img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
+        title:"Instagram Ads",
+        desc:"Création de publicités impactantes pour attirer plus de clients." },
+      { img:"https://images.unsplash.com/photo-1581092160562-040f07c96f4b?q=80&w=800&auto=format&fit=crop",
+        title:"Stratégie Digitale",
+        desc:"Plan d’action clair et efficace pour votre croissance." }
+    ];
+    document.getElementById('service-list').innerHTML = SERVICES.map(s => `
+      <article class="card">
+        <img src="${s.img}" alt="${s.title}">
+        <h3>${s.title}</h3>
+        <p>${s.desc}</p>
+        <a class="btn btn-ghost" href="#contact">Contacter</a>
+      </article>`).join('');
+
+    const TESTIMONIALS = [
+      { img:"https://i.pravatar.cc/100?img=11", name:"Sophie L.", text:"« +50% de ventes en 2 mois, incroyable. Merci SMC ! »" },
+      { img:"https://i.pravatar.cc/100?img=32", name:"Karim B.", text:"« Une équipe qui connaît son travail, résultats concrets. »" },
+      { img:"https://i.pravatar.cc/100?img=19", name:"Laura M.", text:"« Marketing précis, suivi impeccable. Je recommande ! »" },
+    ];
+    const testi = document.getElementById('testimonial');
+    const dots = document.getElementById('dots');
+    let step = 0;
+    function renderTestimonial(i){
+      const t = TESTIMONIALS[i];
+      testi.innerHTML = `
+        <div class="testi-row">
+          <img src="${t.img}" alt="${t.name}">
+          <div>
+            <strong>${t.name}</strong><br/>
+            <span class="testi-text">${t.text}</span>
+          </div>
+        </div>`;
+      dots.innerHTML = TESTIMONIALS.map((_,idx)=>`<button class="dot ${idx===i?'active':''}" data-i="${idx}"></button>`).join('');
+    }
+    renderTestimonial(step);
+    setInterval(()=>{step=(step+1)%TESTIMONIALS.length;renderTestimonial(step);},5000);
+    dots.addEventListener('click',e=>{if(e.target.matches('.dot')){step=+e.target.dataset.i;renderTestimonial(step);}});
+
+    emailjs.init("0eZWzdjul5uTBiqDr");
+    const form = document.getElementById('contact-form');
+    const formMsg = document.getElementById('form-message');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      formMsg.textContent = "Envoi en cours...";
+      try{
+        await emailjs.send("service_sokw6ol","template_jtqrf5s", {
+          from_name: document.getElementById('name').value,
+          from_email: document.getElementById('email').value,
+          company_name: document.getElementById('company').value,
+          message: document.getElementById('message').value
+        });
+
+
 
