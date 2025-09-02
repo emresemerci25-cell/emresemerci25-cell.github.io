@@ -17,22 +17,22 @@ header nav ul li a:hover { text-decoration: underline; }
 .btn-hero { display: inline-block; padding: 15px 30px; background: #0d6efd; color: #fff; border-radius: 5px; text-decoration: none; font-weight: 600; transition: 0.3s; }
 .btn-hero:hover { background: #084298; }
 
-/* SERVICES & WHY US & PORTFOLIO */
+/* SERVICES */
 section { padding: 100px 0; text-align: center; }
 h2 { font-size: 2em; margin-bottom: 40px; color: #0d6efd; }
 
-.service-cards, .why-cards, .portfolio-cards, .testimonial-slider { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px; }
-.service-card, .why-card, .card, .testimonial-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 280px; transition: 0.3s; position: relative; }
-.service-card:hover, .why-card:hover, .card:hover, .testimonial-card:hover { transform: scale(1.05); }
-.service-card .icon, .why-card .icon { font-size: 2em; margin-bottom: 15px; }
-.btn-service, .btn-contact { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #0d6efd; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s; font-weight: 600; }
-.btn-service:hover, .btn-contact:hover { background: #084298; }
+.service-cards, .testimonial-slider { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px; }
+.card, .testimonial-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 280px; transition: 0.3s; opacity:0; transform: translateY(50px); }
+.card:hover, .testimonial-card:hover { transform: scale(1.05); }
+.btn-contact { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #0d6efd; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s; font-weight: 600; }
+.btn-contact:hover { background: #084298; }
 
 /* CONTACT FORM */
 form { display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 500px; margin: 0 auto; }
 form input, form textarea { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; }
 form button { padding: 12px 25px; border: none; border-radius: 5px; background: #0d6efd; color: #fff; cursor: pointer; transition: 0.3s; font-weight: 600; }
 form button:hover { background: #084298; }
+#form-message { margin-top: 10px; font-weight: 600; }
 
 /* TESTIMONIALS */
 .testimonial-slider { flex-direction: column; gap: 20px; }
@@ -49,6 +49,7 @@ footer a:hover { text-decoration: underline; }
 /* RESPONSIVE */
 @media(max-width:768px){ 
     header nav ul { flex-direction: column; gap: 10px; } 
-    .service-cards, .why-cards, .portfolio-cards, .testimonial-slider { flex-direction: column; align-items: center; } 
+    .service-cards, .testimonial-slider { flex-direction: column; align-items: center; } 
     section{padding:80px 20px;}
 }
+
