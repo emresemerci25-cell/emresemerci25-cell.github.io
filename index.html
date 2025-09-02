@@ -1,110 +1,78 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SMC MARKETING</title>
   <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
     body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
       background: #fff;
       color: #333;
-      line-height: 1.6;
     }
     header {
       background: #111;
       color: #fff;
-      padding: 20px 50px;
+      padding: 15px 30px;
       display: flex;
+      align-items: center;
       justify-content: space-between;
+    }
+    header .logo-container {
+      display: flex;
       align-items: center;
     }
-    header h1 {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 2px;
+    header img {
+      width: 40px;
+      margin-right: 10px;
     }
     nav a {
       color: #fff;
-      margin: 0 15px;
+      margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
     }
-    .hero {
-      background: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-      padding: 120px 20px;
-    }
-    .hero h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
-    .btn {
-      background: #ff6600;
-      color: #fff;
-      padding: 12px 25px;
-      text-decoration: none;
-      font-size: 18px;
-      border-radius: 5px;
-    }
     section {
-      padding: 60px 20px;
+      padding: 50px 20px;
       max-width: 1200px;
       margin: auto;
     }
-    h2.section-title {
+    h2 {
       text-align: center;
-      font-size: 36px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
+      font-size: 2rem;
     }
-    .services {
+    .services, .testimonials {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
-    .service {
+    .service, .testimonial {
       background: #f9f9f9;
       padding: 20px;
-      text-align: center;
       border-radius: 10px;
-      transition: 0.3s;
+      text-align: center;
     }
     .service img {
-      max-width: 100%;
+      width: 100%;
       border-radius: 10px;
       margin-bottom: 15px;
     }
-    .service:hover {
-      transform: translateY(-5px);
-    }
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .testimonial {
-      background: #f0f0f0;
-      padding: 20px;
-      border-radius: 10px;
-      font-style: italic;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      max-width: 500px;
-      margin: auto;
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
     }
     form input, form textarea, form button {
+      width: 100%;
+      padding: 10px;
       margin: 10px 0;
-      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
       font-size: 16px;
     }
     form button {
@@ -112,14 +80,10 @@
       color: #fff;
       border: none;
       cursor: pointer;
-      border-radius: 5px;
+      transition: 0.3s;
     }
-    footer {
-      background: #111;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+    form button:hover {
+      background: #e65c00;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
@@ -131,7 +95,7 @@
       event.preventDefault();
       emailjs.sendForm('service_sokw6ol', 'template_jtqrf5s', event.target)
       .then(() => {
-        alert('Message envoyé avec succès !');
+        alert('Message envoyé !');
         event.target.reset();
       }, (error) => {
         alert('Erreur : ' + JSON.stringify(error));
@@ -142,58 +106,63 @@
 <body>
 
 <header>
-  <h1>SMC MARKETING</h1>
+  <div class="logo-container">
+    <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Logo">
+    <h1>SMC MARKETING</h1>
+  </div>
   <nav>
     <a href="#services">Services</a>
-    <a href="#testimonials">Avis</a>
+    <a href="#avis">Avis</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
-  <h2>Boostez Votre Business</h2>
-  <p>SMC MARKETING - Stratégies puissantes pour des résultats concrets.</p>
-  <a href="#contact" class="btn">Contactez-nous</a>
+  <h2 style="text-align:center;">Boostez Votre Business Avec SMC MARKETING</h2>
+  <p style="text-align:center; max-width:800px; margin:auto;">Nous créons des stratégies digitales puissantes pour propulser votre marque et augmenter vos ventes.</p>
 </section>
 
 <section id="services">
-  <h2 class="section-title">Nos Services</h2>
+  <h2>Nos Services</h2>
   <div class="services">
     <div class="service">
       <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop" alt="Facebook Ads">
-      <h3>Gestion Facebook Ads</h3>
-      <p>Optimisation de vos campagnes Meta pour plus de conversions et moins de coûts.</p>
+      <h3>Facebook Ads</h3>
+      <p>Campagnes Meta optimisées pour plus de ventes et moins de coûts.</p>
     </div>
     <div class="service">
       <img src="https://images.unsplash.com/photo-1542744173-05336fcc7ad4?q=80&w=800&auto=format&fit=crop" alt="Instagram Ads">
       <h3>Instagram Ads</h3>
-      <p>Création de publicités impactantes et stratégie ciblée pour développer votre audience.</p>
+      <p>Stratégies Instagram percutantes pour booster votre visibilité.</p>
     </div>
     <div class="service">
-      <img src="https://images.unsplash.com/photo-1522205408450-add114ad53fe?q=80&w=800&auto=format&fit=crop" alt="Stratégie Digitale">
-      <h3>Stratégie Digitale</h3>
-      <p>Plans marketing sur-mesure pour faire passer votre business au niveau supérieur.</p>
+      <img src="https://images.unsplash.com/photo-1522205408450-add114ad53fe?q=80&w=800&auto=format&fit=crop" alt="Marketing Digital">
+      <h3>Marketing Digital</h3>
+      <p>Une stratégie complète pour propulser votre business en ligne.</p>
     </div>
   </div>
 </section>
 
-<section id="testimonials">
-  <h2 class="section-title">Avis Clients</h2>
+<section id="avis">
+  <h2>Avis Clients</h2>
   <div class="testimonials">
     <div class="testimonial">
-      "Grâce à SMC MARKETING, notre chiffre d'affaires a doublé en 3 mois ! Une équipe réactive et efficace."
+      ⭐⭐⭐⭐⭐<br>
+      "SMC MARKETING a doublé nos ventes en 2 mois, une équipe pro et efficace !"
     </div>
     <div class="testimonial">
-      "Ils ont complètement transformé notre image en ligne. On recommande à 100% !"
+      ⭐⭐⭐⭐⭐<br>
+      "Une stratégie claire, des résultats visibles. Je recommande à 100%."
     </div>
     <div class="testimonial">
-      "Une stratégie claire et des résultats visibles rapidement. Très satisfait !"
+      ⭐⭐⭐⭐⭐<br>
+      "Excellent accompagnement, ils ont transformé notre image en ligne."
     </div>
   </div>
 </section>
 
 <section id="contact">
-  <h2 class="section-title">Contactez-Nous</h2>
+  <h2>Contactez-nous</h2>
   <form onsubmit="sendMail(event)">
     <input type="text" name="name" placeholder="Votre nom" required>
     <input type="email" name="email" placeholder="Votre email" required>
@@ -203,10 +172,9 @@
 </section>
 
 <footer>
-  <p>&copy; 2025 SMC MARKETING. Tous droits réservés.</p>
+  <p>&copy; 2025 SMC MARKETING - Tous droits réservés.</p>
 </footer>
 
 </body>
 </html>
-
 
