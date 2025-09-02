@@ -1,29 +1,54 @@
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Montserrat',sans-serif;}
-body{line-height:1.6;background:#f9f9f9;color:#333;}
-.container{width:90%;max-width:1200px;margin:0 auto;}
-header{background:#0d6efd;color:#fff;position:fixed;width:100%;top:0;left:0;z-index:100;padding:15px 0;box-shadow:0 2px 10px rgba(0,0,0,0.1);}
-header .logo{font-size:1.8em;font-weight:700;}
-header nav ul{list-style:none;display:flex;gap:20px;justify-content:flex-end;}
-header nav ul li a{color:#fff;text-decoration:none;font-weight:600;transition:0.2s;}
-header nav ul li a:hover{text-decoration:underline;}
-section{padding:100px 0;text-align:center;}
-#hero{background:#e3f2fd;padding:180px 20px 120px 20px;}
-#hero h2{font-size:2.5em;color:#0d6efd;margin-bottom:20px;animation:fadeInDown 1s;}
-#hero p{font-size:1.2em;margin-bottom:30px;}
-.btn-hero{display:inline-block;padding:15px 30px;background:#0d6efd;color:#fff;border-radius:5px;text-decoration:none;font-weight:600;transition:0.3s;}
-.btn-hero:hover{background:#084298;}
-@keyframes fadeInDown{0%{opacity:0;transform:translateY(-50px);}100%{opacity:1;transform:translateY(0);}}
-.service-cards,.why-cards,.portfolio-cards,.testimonial-slider{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:40px;}
-.service-card,.why-card,.card,.testimonial-card{background:#fff;padding:25px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.1);width:280px;transition:0.3s;}
-.service-card:hover,.why-card:hover,.card:hover,.testimonial-card:hover{transform:scale(1.05);}
-.service-card .icon,.why-card .icon{font-size:2em;margin-bottom:15px;}
-form{display:flex;flex-direction:column;align-items:center;gap:15px;max-width:500px;margin:0 auto;}
-form input,form textarea{width:100%;padding:12px;border-radius:5px;border:1px solid #ccc;}
-form button{padding:12px 25px;border:none;border-radius:5px;background:#0d6efd;color:#fff;cursor:pointer;transition:0.3s;font-weight:600;}
-form button:hover{background:#084298;}
-footer{background:#222;color:#fff;padding:25px 0;}
-footer a{color:#0d6efd;text-decoration:none;margin:0 5px;}
-footer a:hover{text-decoration:underline;}
-@media(max-width:768px){header nav ul{flex-direction:column;gap:10px;} .service-cards,.why-cards,.portfolio-cards,.testimonial-slider{flex-direction:column;align-items:center;} section{padding:80px 20px;}}
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+body { line-height: 1.6; background: #f9f9f9; color: #333; scroll-behavior: smooth; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
 
+/* HEADER */
+header { background: #0d6efd; color: #fff; position: fixed; width: 100%; top: 0; left: 0; z-index: 100; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+header .logo { font-size: 1.8em; font-weight: 700; }
+header nav ul { list-style: none; display: flex; gap: 20px; justify-content: flex-end; }
+header nav ul li a { color: #fff; text-decoration: none; font-weight: 600; transition: 0.2s; }
+header nav ul li a:hover { text-decoration: underline; }
 
+/* HERO */
+#hero { background: #e3f2fd; padding: 180px 20px 120px 20px; text-align: center; }
+#hero h2 { font-size: 2.5em; color: #0d6efd; margin-bottom: 20px; animation: fadeInDown 1s; }
+#hero p { font-size: 1.2em; margin-bottom: 30px; }
+.btn-hero { display: inline-block; padding: 15px 30px; background: #0d6efd; color: #fff; border-radius: 5px; text-decoration: none; font-weight: 600; transition: 0.3s; }
+.btn-hero:hover { background: #084298; }
+
+/* SERVICES & WHY US & PORTFOLIO */
+section { padding: 100px 0; text-align: center; }
+h2 { font-size: 2em; margin-bottom: 40px; color: #0d6efd; }
+
+.service-cards, .why-cards, .portfolio-cards, .testimonial-slider { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 40px; }
+.service-card, .why-card, .card, .testimonial-card { background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 280px; transition: 0.3s; position: relative; }
+.service-card:hover, .why-card:hover, .card:hover, .testimonial-card:hover { transform: scale(1.05); }
+.service-card .icon, .why-card .icon { font-size: 2em; margin-bottom: 15px; }
+.btn-service, .btn-contact { display: inline-block; margin-top: 15px; padding: 10px 20px; background: #0d6efd; color: #fff; border-radius: 5px; text-decoration: none; transition: 0.3s; font-weight: 600; }
+.btn-service:hover, .btn-contact:hover { background: #084298; }
+
+/* CONTACT FORM */
+form { display: flex; flex-direction: column; align-items: center; gap: 15px; max-width: 500px; margin: 0 auto; }
+form input, form textarea { width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #ccc; }
+form button { padding: 12px 25px; border: none; border-radius: 5px; background: #0d6efd; color: #fff; cursor: pointer; transition: 0.3s; font-weight: 600; }
+form button:hover { background: #084298; }
+
+/* TESTIMONIALS */
+.testimonial-slider { flex-direction: column; gap: 20px; }
+.testimonial-card { width: 100%; max-width: 500px; margin: 0 auto; font-style: italic; }
+
+/* FOOTER */
+footer { background: #222; color: #fff; padding: 25px 0; text-align: center; }
+footer a { color: #0d6efd; text-decoration: none; margin: 0 5px; }
+footer a:hover { text-decoration: underline; }
+
+/* ANIMATIONS */
+@keyframes fadeInDown { 0% { opacity:0; transform: translateY(-50px); } 100% { opacity:1; transform: translateY(0); } }
+
+/* RESPONSIVE */
+@media(max-width:768px){ 
+    header nav ul { flex-direction: column; gap: 10px; } 
+    .service-cards, .why-cards, .portfolio-cards, .testimonial-slider { flex-direction: column; align-items: center; } 
+    section{padding:80px 20px;}
+}
