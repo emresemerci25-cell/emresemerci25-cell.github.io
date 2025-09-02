@@ -7,40 +7,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <header>
         <h1>Agence SMMA Pro</h1>
         <nav>
-            <input type="text" id="search" placeholder="Rechercher une entreprise...">
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
 
-    <section class="about">
+    <section id="home" class="hero">
+        <h2>Nous faisons grandir votre business sur les réseaux sociaux</h2>
+        <p>Stratégie digitale, marketing, community management et publicité ciblée pour booster vos ventes.</p>
+    </section>
+
+    <section id="about" class="about">
         <h2>À propos de nous</h2>
-        <p>Nous sommes une agence SMMA spécialisée dans le marketing digital, la gestion des réseaux sociaux et la croissance des entreprises en ligne. Notre objectif est de booster votre visibilité et vos ventes.</p>
+        <p>Agence spécialisée dans le marketing digital et la gestion des réseaux sociaux pour entreprises ambitieuses. Notre mission : maximiser votre visibilité et vos revenus en ligne.</p>
     </section>
 
-    <section class="services">
+    <section id="services" class="services">
         <h2>Nos Services</h2>
-        <ul>
-            <li>Gestion de publicités Facebook & Instagram</li>
-            <li>Community Management</li>
-            <li>Création de contenu & design graphique</li>
-            <li>Stratégie marketing & consulting</li>
-            <li>Optimisation des conversions</li>
-        </ul>
-    </section>
+        <div class="service-list">
+            <div class="card">
+                <h3>Community Management</h3>
+                <p>Gestion quotidienne de vos réseaux sociaux pour créer une communauté engagée.</p>
+            </div>
+            <div class="card">
+                <h3>Publicités Facebook & Instagram</h3>
 
-    <section class="clients">
-        <h2>Nos Clients / Entreprises</h2>
-        <div id="company-list">
-            <!-- Les cartes entreprises seront générées ici par JS -->
-        </div>
-    </section>
 
-    <footer>
-        <p>© 2025 Agence SMMA Pro - Tous droits réservés</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
