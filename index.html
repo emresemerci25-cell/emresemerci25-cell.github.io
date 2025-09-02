@@ -38,6 +38,11 @@
     .burger{display:none;background:transparent;border:0;gap:6px;flex-direction:column}
     .burger span{display:block;width:24px;height:2px;background:#111;border-radius:2px}
 
+    /* LOGO box (plus d’espace) */
+    .logo-box{display:inline-flex;align-items:center;gap:12px}
+    .logo-icon{height:48px}
+    .logo-text{font-weight:800;font-size:20px;color:#1e40af;letter-spacing:.5px}
+
     /* Hero */
     .hero{background:linear-gradient(180deg,#ffffff, #eef3ff)}
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 0}
@@ -55,7 +60,7 @@
 
     /* Dark section */
     .dark{background:linear-gradient(180deg,var(--dark-2),var(--dark-1));color:#eaf2ff}
-    .dark h2{color:#fff}
+    .dark h2,.dark .kicker{color:#fff}
     .features{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:22px}
     .feature{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:18px}
     .feature .icon{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.12);display:grid;place-items:center;margin-bottom:10px}
@@ -74,7 +79,7 @@
     .testi-row img{width:50px;height:50px;border-radius:50%}
     .testi-text{color:#374151;font-style:italic}
     .dots{display:flex;gap:8px;justify-content:center;margin-top:12px}
-    .dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1;border:0}
+    .dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1;border:0;cursor:pointer}
     .dot.active{background:var(--primary)}
 
     /* Footer */
@@ -102,17 +107,20 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="#hero" aria-label="Accueil">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" style="height:50px;">
-          <rect x="0" y="0" width="60" height="60" rx="12" fill="#2563eb"/>
-          <text x="30" y="38" text-anchor="middle" font-size="28" font-family="Montserrat, Arial" font-weight="800" fill="#fff">SMC</text>
-          <text x="80" y="38" font-size="20" font-family="Montserrat, Arial" font-weight="700" fill="#1e40af">MARKETING</text>
-        </svg>
+        <span class="logo-box">
+          <!-- Icône LOGO SMC (plus d’espace) -->
+          <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" aria-label="SMC logo">
+            <rect x="0" y="0" width="60" height="60" rx="12" fill="#2563eb"/>
+            <text x="30" y="38" text-anchor="middle" font-size="28" font-family="Montserrat, Arial" font-weight="800" fill="#fff">SMC</text>
+          </svg>
+          <span class="logo-text">MARKETING</span>
+        </span>
       </a>
       <nav class="nav" id="nav">
         <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#testimonials">Avis</a>
-        <a href="#contact" class="btn btn-small btn-primary">Nous contacter</a>
+        <a href="#contact" class="btn btn-small btn-primary" style="color:#fff;">Nous contacter</a>
       </nav>
       <button class="burger" id="burger" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
     </div>
@@ -124,14 +132,14 @@
       <div class="hero-left">
         <p class="kicker">FACEBOOK & INSTAGRAM ADS</p>
         <h1>Boostez vos ventes avec <span class="highlight">SMC MARKETING</span></h1>
-        <p class="sub">Agence spécialisée en publicités Meta pour générer des clients qualifiés et développer votre chiffre d'affaires.</p>
+        <p class="sub">Agence inspirée des meilleurs standards (style Eskimoz) : créas testées en continu, tracking propre et scaling efficace.</p>
         <div class="hero-ctas">
           <a href="#contact" class="btn btn-primary">Audit gratuit</a>
           <a href="#portfolio" class="btn btn-ghost">Voir nos résultats</a>
         </div>
       </div>
       <div class="hero-right">
-        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop" alt="Marketing digital">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop" alt="Marketing digital">
       </div>
     </div>
   </section>
@@ -145,23 +153,48 @@
     </div>
   </section>
 
-  <!-- PORTFOLIO -->
-  <section id="portfolio" class="section">
+  <!-- DARK FEATURES (fond bleu) -->
+  <section class="section dark">
     <div class="container">
-      <p class="kicker">RÉSULTATS</p>
-      <h2>Quelques Campagnes</h2>
-      <div class="portfolio">
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Campagne 1">
-        <img src="https://images.unsplash.com/photo-1581093588401-8cbfbf28f244?q=80&w=1200&auto=format&fit=crop" alt="Campagne 2">
-        <img src="https://images.unsplash.com/photo-1605902711622-cfb43c4437e1?q=80&w=1200&auto=format&fit=crop" alt="Campagne 3">
-        <img src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?q=80&w=1200&auto=format&fit=crop" alt="Campagne 4">
-        <img src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1200&auto=format&fit=crop" alt="Campagne 5">
-        <img src="https://images.unsplash.com/photo-1556742111-3f66b99f0d93?q=80&w=1200&auto=format&fit=crop" alt="Campagne 6">
+      <h2>Levier d’acquisition complet</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8zM12 1a1 1 0 011 1v2a1 1 0 11-2 0V2a1 1 0 011-1zm0 19a1 1 0 011 1v2a1 1 0 11-2 0v-2a1 1 0 011-1zM3 11a1 1 0 011-1h2a1 1 0 110 2H4a1 1 0 01-1-1zm15 0a1 1 0 011-1h3a1 1 0 110 2h-3a1 1 0 01-1-1z"/></svg></div>
+          <h3>Audience</h3><p>Volumes pertinents via créas testées + ciblages précis.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/></svg></div>
+          <h3>Ciblage</h3><p>Intérêts, lookalikes, exclusions : on baisse le CPA, on scale.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M17.65 6.35A8 8 0 004 12h2a6 6 0 016-6c1.7 0 3.2.7 4.24 1.76L13 11h7V4l-2.35 2.35zM18 12a6 6 0 01-6 6 5 5 0 01-4.24-2.24L11 13H4v7l2.35-2.35A8 8 0 0020 12h-2z"/></svg></div>
+          <h3>Remarketing</h3><p>Séquences multi-formats pour convertir les audiences chaudes.</p>
+        </div>
+        <div class="feature">
+          <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5 1.5-1.5L9 14l9.5-9.5L20 6z"/></svg></div>
+          <h3>Conversion</h3><p>Optimisation créa, budget & landing pour transformer en revenus.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- AVIS CLIENTS -->
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section">
+    <div class="container">
+      <p class="kicker">RÉSULTATS</p>
+      <h2>Quelques campagnes</h2>
+      <div class="portfolio">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" alt="Campagne 1">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1581093588401-8cbfbf28f244?q=80&w=1200&auto=format&fit=crop" alt="Campagne 2">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1605902711622-cfb43c4437e1?q=80&w=1200&auto=format&fit=crop" alt="Campagne 3">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556742393-d75f468bfcb0?q=80&w=1200&auto=format&fit=crop" alt="Campagne 4">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556745757-8d76bdb6984b?q=80&w=1200&auto=format&fit=crop" alt="Campagne 5">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1556742111-3f66b99f0d93?q=80&w=1200&auto=format&fit=crop" alt="Campagne 6">
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
   <section id="testimonials" class="section">
     <div class="container">
       <p class="kicker">ILS TÉMOIGNENT</p>
@@ -173,19 +206,19 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="section">
+  <!-- CONTACT (sur fond bleu → textes lisibles) -->
+  <section id="contact" class="section dark">
     <div class="container">
       <p class="kicker">CONTACT</p>
-      <h2>Contactez SMC MARKETING</h2>
+      <h2>Parlons de vos objectifs</h2>
       <form id="contact-form" class="form">
         <input type="text" id="name" placeholder="Votre nom" required>
         <input type="email" id="email" placeholder="Votre email" required>
         <input type="text" id="company" placeholder="Nom de votre entreprise" required>
         <textarea id="message" placeholder="Votre message" required></textarea>
-        <button type="submit" class="btn btn-primary">Envoyer</button>
+        <button type="submit" class="btn btn-primary" style="color:#fff">Envoyer</button>
       </form>
-      <p id="form-message" class="form-message"></p>
+      <p id="form-message" class="form-message" style="color:#fff"></p>
     </div>
   </section>
 
@@ -196,40 +229,70 @@
     </div>
   </footer>
 
+  <!-- EmailJS + App -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
   <script>
+    /* ===== Menu mobile ===== */
     const burger = document.getElementById('burger');
     const nav = document.getElementById('nav');
-    burger.addEventListener('click', ()=> nav.classList.toggle('open'));
+    if(burger && nav){ burger.addEventListener('click', ()=> nav.classList.toggle('open')); }
 
+    /* ===== Services (images + textes visibles) ===== */
     const SERVICES = [
-      { img:"https://images.unsplash.com/photo-1596524430615-b46475ddff6a?q=80&w=800&auto=format&fit=crop",
+      { img:"https://images.unsplash.com/photo-1556157382-97eda2d62296?q=80&w=800&auto=format&fit=crop",
         title:"Facebook Ads",
-        desc:"Optimisation complète de vos campagnes Meta pour un ROI maximal." },
-      { img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
+        desc:"Création, tests A/B, scaling et baisse des CPA. On optimise chaque euro." },
+      { img:"https://images.unsplash.com/photo-1542744173-05336fcc7ad4?q=80&w=800&auto=format&fit=crop",
         title:"Instagram Ads",
-        desc:"Création de publicités impactantes pour attirer plus de clients." },
-      { img:"https://images.unsplash.com/photo-1581092160562-040f07c96f4b?q=80&w=800&auto=format&fit=crop",
+        desc:"Reels, carrousels & UGC pour convertir sur mobile et augmenter le ROAS." },
+      { img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop",
         title:"Stratégie Digitale",
-        desc:"Plan d’action clair et efficace pour votre croissance." }
+        desc:"Funnel clair, tracking propre (CAPI), reporting lisible, décisions rapides." },
+      { img:"https://images.unsplash.com/photo-1581092160562-040f07c96f4b?q=80&w=800&auto=format&fit=crop",
+        title:"Optimisation du ROI",
+        desc:"Pilotage budget, enchères & créas : on garde ce qui marche, on coupe le reste." },
+      { img:"https://images.unsplash.com/photo-1590402494682-cd06e3f7c7f3?q=80&w=800&auto=format&fit=crop",
+        title:"Tracking & Data",
+        desc:"Pixels, Conversions API, événements clés et dashboards actionnables." },
+      { img:"https://images.unsplash.com/photo-1551281044-8e8d0a75d2d5?q=80&w=800&auto=format&fit=crop",
+        title:"Reporting",
+        desc:"Rapports hebdo + reco concrètes. Focus résultats, pas blabla." },
     ];
-    document.getElementById('service-list').innerHTML = SERVICES.map(s => `
-      <article class="card">
-        <img src="${s.img}" alt="${s.title}">
-        <h3>${s.title}</h3>
-        <p>${s.desc}</p>
-        <a class="btn btn-ghost" href="#contact">Contacter</a>
-      </article>`).join('');
+    const serviceList = document.getElementById('service-list');
+    if(serviceList){
+      serviceList.innerHTML = SERVICES.map(s => `
+        <article class="card">
+          <img loading="lazy" src="${s.img}" alt="${s.title}">
+          <h3>${s.title}</h3>
+          <p>${s.desc}</p>
+          <a class="btn btn-ghost" href="#contact">Contacter</a>
+        </article>
+      `).join('');
+    }
 
+    /* Apparition des cards au scroll (pour pas rester “blanc”) */
+    const onScrollReveal = () => {
+      document.querySelectorAll('.card').forEach(card=>{
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight * 0.9){
+          card.style.opacity = 1;
+          card.style.transform = 'translateY(0)';
+        }
+      });
+    };
+    onScrollReveal(); window.addEventListener('scroll', onScrollReveal);
+
+    /* ===== Testimonials (réparé) ===== */
     const TESTIMONIALS = [
-      { img:"https://i.pravatar.cc/100?img=11", name:"Sophie L.", text:"« +50% de ventes en 2 mois, incroyable. Merci SMC ! »" },
-      { img:"https://i.pravatar.cc/100?img=32", name:"Karim B.", text:"« Une équipe qui connaît son travail, résultats concrets. »" },
-      { img:"https://i.pravatar.cc/100?img=19", name:"Laura M.", text:"« Marketing précis, suivi impeccable. Je recommande ! »" },
+      { img:"https://i.pravatar.cc/100?img=12", name:"Sophie L.", text:"« +40% de CA en 8 semaines. Méthode sérieuse, esprit Eskimoz. »" },
+      { img:"https://i.pravatar.cc/100?img=18", name:"Karim B.",  text:"« ROAS en hausse, équipe réactive, tracking clean. »" },
+      { img:"https://i.pravatar.cc/100?img=7",  name:"Laura M.",  text:"« Créas qui convertissent + rapports clairs = décision rapide. »" },
     ];
     const testi = document.getElementById('testimonial');
     const dots = document.getElementById('dots');
     let step = 0;
     function renderTestimonial(i){
+      if(!testi || !dots) return;
       const t = TESTIMONIALS[i];
       testi.innerHTML = `
         <div class="testi-row">
@@ -239,25 +302,52 @@
             <span class="testi-text">${t.text}</span>
           </div>
         </div>`;
-      dots.innerHTML = TESTIMONIALS.map((_,idx)=>`<button class="dot ${idx===i?'active':''}" data-i="${idx}"></button>`).join('');
+      dots.innerHTML = TESTIMONIALS.map((_,idx)=>`<button class="dot ${idx===i?'active':''}" data-i="${idx}" aria-label="Slide ${idx+1}"></button>`).join('');
     }
     renderTestimonial(step);
-    setInterval(()=>{step=(step+1)%TESTIMONIALS.length;renderTestimonial(step);},5000);
-    dots.addEventListener('click',e=>{if(e.target.matches('.dot')){step=+e.target.dataset.i;renderTestimonial(step);}});
+    setInterval(()=>{ step = (step+1)%TESTIMONIALS.length; renderTestimonial(step); }, 5000);
+    if(dots){
+      dots.addEventListener('click', (e)=>{ if(e.target.matches('.dot')){ step=+e.target.dataset.i; renderTestimonial(step);} });
+    }
 
-    emailjs.init("0eZWzdjul5uTBiqDr");
+    /* ===== Smooth scroll ===== */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id && id.length>1){
+          e.preventDefault();
+          const el = document.querySelector(id);
+          if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
+          if(nav){ nav.classList.remove('open'); }
+        }
+      });
+    });
+
+    /* ===== EmailJS (formulaire) ===== */
+    emailjs.init("0eZWzdjul5uTBiqDr"); // PUBLIC KEY
     const form = document.getElementById('contact-form');
     const formMsg = document.getElementById('form-message');
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      formMsg.textContent = "Envoi en cours...";
-      try{
-        await emailjs.send("service_sokw6ol","template_jtqrf5s", {
+
+    if(form){
+      form.addEventListener('submit', async (e)=>{
+        e.preventDefault();
+        if(formMsg){ formMsg.textContent = "Envoi en cours..."; formMsg.style.color = "#fff"; }
+        const templateParams = {
           from_name: document.getElementById('name').value,
           from_email: document.getElementById('email').value,
           company_name: document.getElementById('company').value,
           message: document.getElementById('message').value
-        });
-
-
-
+        };
+        try{
+          await emailjs.send("service_sokw6ol","template_jtqrf5s", templateParams);
+          if(formMsg){ formMsg.textContent = "Merci ! Votre message a été envoyé."; formMsg.style.color = "white"; }
+          form.reset();
+        }catch(err){
+          if(formMsg){ formMsg.textContent = "Erreur d’envoi. Vérifie EmailJS (service, template, clés)."; formMsg.style.color = "yellow"; }
+          console.error(err);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
