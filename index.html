@@ -28,7 +28,7 @@
   /* Header */
   .site-header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--border)}
   .header-inner{display:flex;align-items:center;justify-content:space-between;min-height:68px}
-  .logo-wrap{display:flex;align-items:center;gap:14px}
+  .logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none}
   .logo-icon{height:48px}
   .logo-text{font-weight:800;font-size:20px;color:#1e40af;letter-spacing:.5px}
   .nav{display:flex;gap:22px;align-items:center}
@@ -42,12 +42,6 @@
   .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 0}
   .hero .sub{color:var(--muted);margin:1rem 0 1.3rem}
   .hero-art{border-radius:18px;box-shadow:0 12px 28px rgba(0,0,0,.08);background:#fff;padding:18px}
-
-  /* Brands */
-  .brands{display:grid;grid-template-columns:repeat(6,1fr);gap:16px;align-items:center;opacity:.9}
-  .brand{background:#fff;border:1px dashed var(--border);border-radius:12px;padding:14px;display:grid;place-items:center}
-  .brand svg{width:110px;height:24px}
-  .brand text{fill:#94a3b8;font-weight:800;letter-spacing:.1em}
 
   /* Cards services */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
@@ -76,7 +70,7 @@
   .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px}
   .step .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9px;background:#eef2ff;color:#1e40af;font-weight:800;margin-bottom:8px}
 
-  /* Portfolio -> cards KPI au lieu de photos */
+  /* Portfolio -> KPI cards */
   .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
   .case{background:#fff;border:1px solid var(--border);border-radius:14px;padding:16px;box-shadow:0 8px 24px rgba(0,0,0,.06)}
   .case .badge{display:inline-block;background:#eef2ff;color:#1e40af;font-weight:800;border-radius:999px;padding:6px 10px;font-size:.82rem;margin-bottom:10px}
@@ -139,7 +133,7 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo-wrap" href="#hero" aria-label="Accueil">
-      <!-- Logo SMC ajusté (SMC plus petit) -->
+      <!-- Logo SMC ajusté -->
       <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" aria-label="SMC logo">
         <rect x="0" y="0" width="60" height="60" rx="12" fill="#2563eb"/>
         <text x="30" y="36" text-anchor="middle" font-size="20" font-family="Montserrat, Arial" font-weight="800" fill="#fff">SMC</text>
@@ -164,15 +158,15 @@
     <div class="hero-left">
       <p class="kicker">FACEBOOK & INSTAGRAM ADS</p>
       <h1>Boostez vos ventes avec SMC MARKETING</h1>
-      <p class="sub">Approche : créas testées en continu, tracking propre (CAPI), décisions guidées par les data.</p>
+      <p class="sub">CPA en baisse, chiffre en hausse. Créatifs testés, tracking propre, décisions guidées par les chiffres.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Audit gratuit</a>
         <a href="#portfolio" class="btn btn-ghost">Voir nos résultats</a>
       </div>
     </div>
     <div class="hero-right">
-      <!-- Illustration Dashboard Marketing -->
       <div class="hero-art">
+        <!-- Illustration Dashboard -->
         <svg viewBox="0 0 640 420" width="100%" height="auto" aria-hidden="true">
           <rect x="20" y="20" width="600" height="360" rx="18" fill="#ffffff" stroke="#e2e8f0"/>
           <rect x="40" y="50" width="560" height="20" rx="6" fill="#e2e8f0"/>
@@ -195,19 +189,7 @@
   </div>
 </section>
 
-<!-- BRANDS -->
-<section class="section" aria-label="Ils nous font confiance">
-  <div class="container">
-    <div class="brands">
-      <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">NORDIC</text></svg></div>
-      <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">ATLAS</text></svg></div>
-      <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">POLARIS</text></svg></div>
-      <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">MERCURY</text></svg></div>
-      <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">SEQUOIA</text></svg></div>
-      <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">ORBIT</text></svg></div>
-    </div>
-  </div>
-</section>
+<!-- (SECTION BRANDS SUPPRIMÉE) -->
 
 <!-- SERVICES -->
 <section id="services" class="section">
@@ -247,7 +229,7 @@
   </div>
 </section>
 
-<!-- PORTFOLIO = CARTES KPI -->
+<!-- PORTFOLIO KPI -->
 <section id="portfolio" class="section">
   <div class="container">
     <p class="kicker">RÉSULTATS</p>
@@ -298,19 +280,16 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <p>© 2025 SMC MARKETING — Tous droits réservés</p>
   </div>
 </footer>
 
-<!-- STICKY CTA -->
 <div class="sticky-cta">
   <a href="#contact" class="btn btn-primary" style="color:#fff">Parler à un expert</a>
 </div>
 
-<!-- SCRIPTS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 /* ===== Menu mobile ===== */
@@ -328,14 +307,14 @@ const icons = {
   report:`<svg viewBox="0 0 64 64"><rect x="16" y="10" width="32" height="44" rx="6"/><path d="M22 20h20M22 28h16M22 36h20M22 44h10"/></svg>`
 };
 
-/* ===== Services (illustrations intégrées, 0 image externe) ===== */
+/* ===== Services (illustrations intégrées) ===== */
 const SERVICES = [
-  { icon:'ads',    title:"Facebook Ads",     desc:"Création, tests A/B, scaling et baisse des CPA. On optimise chaque euro.", cls:'g1' },
-  { icon:'insta',  title:"Instagram Ads",    desc:"Reels, carrousels & UGC pour convertir sur mobile et augmenter le ROAS.", cls:'g2' },
+  { icon:'ads',    title:"Facebook Ads",       desc:"Création, tests A/B, scaling et baisse des CPA. On optimise chaque euro.", cls:'g1' },
+  { icon:'insta',  title:"Instagram Ads",      desc:"Reels, carrousels & UGC pour convertir sur mobile et augmenter le ROAS.", cls:'g2' },
   { icon:'strat',  title:"Stratégie Digitale", desc:"Funnel clair, tracking propre (CAPI), reporting lisible, décisions rapides.", cls:'g3' },
   { icon:'roi',    title:"Optimisation du ROI", desc:"Bid strategy, budget, refresh créa : on garde ce qui marche.", cls:'g4' },
-  { icon:'track',  title:"Tracking & Data",  desc:"Pixels, CAPI, événements clés et dashboards actionnables.", cls:'g5' },
-  { icon:'report', title:"Reporting",        desc:"Rapports hebdo + reco concrètes. Focus résultats, pas blabla.", cls:'g6' },
+  { icon:'track',  title:"Tracking & Data",    desc:"Pixels, CAPI, événements clés et dashboards actionnables.", cls:'g5' },
+  { icon:'report', title:"Reporting",          desc:"Rapports hebdo + reco concrètes. Focus résultats, pas blabla.", cls:'g6' },
 ];
 document.getElementById('service-list').innerHTML = SERVICES.map(s => `
   <article class="card">
@@ -346,14 +325,14 @@ document.getElementById('service-list').innerHTML = SERVICES.map(s => `
   </article>
 `).join('');
 
-/* ===== Portfolio -> cartes KPI (pro, 0 photo random) ===== */
+/* ===== Portfolio -> KPI cards ===== */
 const CASES = [
-  { brand:"NORDIC", kpis:[{k:"CPA",v:"-32%"},{k:"ROAS",v:"+2.1x"}] },
-  { brand:"ATLAS",  kpis:[{k:"Leads",v:"+64%"},{k:"CPL",v:"-28%"}] },
-  { brand:"POLARIS",kpis:[{k:"Ventes",v:"+47%"},{k:"CAC",v:"-22%"}] },
-  { brand:"MERCURY",kpis:[{k:"ROAS",v:"+2.8x"},{k:"AOV",v:"+12%"}] },
-  { brand:"SEQUOIA",kpis:[{k:"CTR",v:"+31%"},{k:"CPM",v:"-18%"}] },
-  { brand:"ORBIT",  kpis:[{k:"Leads",v:"+53%"},{k:"Conv.",v:"+0.8 pt"}] },
+  { brand:"RETAIL",   kpis:[{k:"CPA",v:"-32%"},{k:"ROAS",v:"+2.1x"}] },
+  { brand:"E-COM",    kpis:[{k:"Leads",v:"+64%"},{k:"CPL",v:"-28%"}] },
+  { brand:"SAAS",     kpis:[{k:"Ventes",v:"+47%"},{k:"CAC",v:"-22%"}] },
+  { brand:"LOCAL",    kpis:[{k:"ROAS",v:"+2.8x"},{k:"AOV",v:"+12%"}] },
+  { brand:"EDU",      kpis:[{k:"CTR",v:"+31%"},{k:"CPM",v:"-18%"}] },
+  { brand:"SERVICES", kpis:[{k:"Leads",v:"+53%"},{k:"Conv.",v:"+0.8 pt"}] },
 ];
 document.getElementById('portfolio-grid').innerHTML = CASES.map(c => `
   <div class="case">
@@ -364,11 +343,11 @@ document.getElementById('portfolio-grid').innerHTML = CASES.map(c => `
   </div>
 `).join('');
 
-/* ===== Testimonials (monogrammes) ===== */
+/* ===== Testimonials ===== */
 const TESTIMONIALS = [
-  { initials:"SL", name:"Sophie L.", text:"« +40% de CA en 8 semaines. Méthode sérieuse, esprit “Eskimoz-like”. »", avatarClass:"avatar-1" },
-  { initials:"KB", name:"Karim B.",  text:"« ROAS en hausse, équipe réactive, tracking clean. »",                  avatarClass:"avatar-2" },
-  { initials:"LM", name:"Laura M.",  text:"« Créas qui convertissent + rapports clairs = décisions rapides. »",     avatarClass:"avatar-3" }
+  { initials:"SL", name:"Sophie L.", text:"« +40% de CA en 8 semaines. Méthode claire et efficace. »", avatarClass:"avatar-1" },
+  { initials:"KB", name:"Karim B.",  text:"« ROAS en hausse, équipe réactive, tracking propre. »",     avatarClass:"avatar-2" },
+  { initials:"LM", name:"Laura M.",  text:"« Créas qui convertissent + rapports clairs = décisions rapides. »", avatarClass:"avatar-3" }
 ];
 const testi = document.getElementById('testimonial');
 const dots = document.getElementById('dots');
@@ -397,12 +376,17 @@ document.querySelectorAll('.faq-item').forEach(item=>{
 /* ===== Smooth scroll ===== */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
-    const id = a.getAttribute('href'); if(id && id.length>1){ e.preventDefault(); const el=document.querySelector(id); if(el){ el.scrollIntoView({behavior:'smooth'}); } if(nav){nav.classList.remove('open');} }
+    const id = a.getAttribute('href');
+    if(id && id.length>1){
+      e.preventDefault();
+      const el=document.querySelector(id); if(el){ el.scrollIntoView({behavior:'smooth'}); }
+      if(nav){ nav.classList.remove('open'); }
+    }
   });
 });
 
 /* ===== EmailJS ===== */
-emailjs.init("0eZWzdjul5uTBiqDr"); // PUBLIC KEY
+emailjs.init("0eZWzdjul5uTBiqDr");
 const form = document.getElementById('contact-form');
 const formMsg = document.getElementById('form-message');
 form.addEventListener('submit', async (e)=>{
