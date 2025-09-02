@@ -1,1 +1,1 @@
-# emresemerci25-cell.github.io
+# smcmarketing.github.io
