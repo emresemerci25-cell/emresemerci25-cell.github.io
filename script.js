@@ -1,41 +1,34 @@
-/* RESET */
-* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
+const companies = [
+    { name: "Restaurant Le Gourmet", type: "Restauration", contact: "contact@gourmet.com" },
+    { name: "Fitness Pro", type: "Sport", contact: "contact@fitnesspro.com" },
+    { name: "Tech Solutions", type: "Informatique", contact: "contact@techsolutions.com" },
+    { name: "Agence Marketing", type: "Marketing", contact: "contact@marketing.com" },
+    { name: "Salon Beauté", type: "Beauté", contact: "contact@salonbeaute.com" }
+];
 
-/* BODY */
-body { background-color: #f4f4f9; color: #333; line-height: 1.6; }
+const companyList = document.getElementById('company-list');
+const searchInput = document.getElementById('search');
 
-/* HEADER */
-header { background-color: #0d6efd; color: #fff; padding: 20px; text-align: center; }
-header h1 { margin-bottom: 10px; }
-header nav input {
-    padding: 10px;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 5px;
-    border: none;
+function displayCompanies(list) {
+    companyList.innerHTML = '';
+    list.forEach(company => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <h3>${company.name}</h3>
+            <p><strong>Type :</strong> ${company.type}</p>
+            <p><strong>Contact :</strong> ${company.contact}</p>
+        `;
+        companyList.appendChild(card);
+    });
 }
 
-/* MAIN */
-main { display: flex; flex-wrap: wrap; justify-content: center; margin: 20px; gap: 20px; }
+// Affichage initial
+displayCompanies(companies);
 
-/* CARD */
-.card {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
-    width: 250px;
-    transition: transform 0.2s;
-}
-.card:hover { transform: scale(1.05); }
-.card h3 { margin-bottom: 10px; color: #0d6efd; }
-.card p { margin-bottom: 5px; font-size: 14px; }
-
-/* FOOTER */
-footer { text-align: center; padding: 20px; background-color: #222; color: #fff; margin-top: 20px; }
-
-/* RESPONSIVE */
-@media(max-width:600px) {
-    main { flex-direction: column; align-items: center; }
-    header nav input { width: 90%; }
-}
+// Recherche dynamique
+searchInput.addEventListener('input', (e) => {
+    const value = e.target.value.toLowerCase();
+    const filtered = companies.filter(c => c.name.toLowerCase().includes(value) || c.type.toLowerCase().includes(value));
+    displayCompanies(filtered);
+});
