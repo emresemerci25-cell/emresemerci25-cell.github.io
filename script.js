@@ -1,26 +1,41 @@
-const searchBtn = document.getElementById("searchBtn");
-const companyInput = document.getElementById("companyInput");
-const results = document.getElementById("results");
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', sans-serif; }
 
-// Données exemple
-const fakeData = [
-    {name: "Entreprise A", website: "https://entrepriseA.com"},
-    {name: "Entreprise B", website: "https://entrepriseB.com"},
-    {name: "Entreprise C", website: "https://entrepriseC.com"}
-];
+/* BODY */
+body { background-color: #f4f4f9; color: #333; line-height: 1.6; }
 
-searchBtn.addEventListener("click", () => {
-    const query = companyInput.value.toLowerCase();
-    results.innerHTML = "";
+/* HEADER */
+header { background-color: #0d6efd; color: #fff; padding: 20px; text-align: center; }
+header h1 { margin-bottom: 10px; }
+header nav input {
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    border: none;
+}
 
-    const filtered = fakeData.filter(item => item.name.toLowerCase().includes(query));
+/* MAIN */
+main { display: flex; flex-wrap: wrap; justify-content: center; margin: 20px; gap: 20px; }
 
-    if(filtered.length === 0){
-        results.innerHTML = "<p>Aucun résultat trouvé</p>";
-        return;
-    }
+/* CARD */
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.2s;
+}
+.card:hover { transform: scale(1.05); }
+.card h3 { margin-bottom: 10px; color: #0d6efd; }
+.card p { margin-bottom: 5px; font-size: 14px; }
 
-    filtered.forEach(item => {
-        results.innerHTML += `<p>${item.name} - <a href="${item.website}" target="_blank">Site</a></p>`;
-    });
-});
+/* FOOTER */
+footer { text-align: center; padding: 20px; background-color: #222; color: #fff; margin-top: 20px; }
+
+/* RESPONSIVE */
+@media(max-width:600px) {
+    main { flex-direction: column; align-items: center; }
+    header nav input { width: 90%; }
+}
