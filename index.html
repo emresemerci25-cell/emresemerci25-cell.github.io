@@ -17,7 +17,6 @@
             <ul>
                 <li><a href="#hero">Accueil</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#why-us">Pourquoi Nous</a></li>
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#testimonials">Témoignages</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -29,8 +28,8 @@
 <!-- HERO -->
 <section id="hero">
     <div class="hero-content">
-        <h2>Augmentez vos ventes avec des campagnes Facebook Ads performantes</h2>
-        <p>Nous aidons les entreprises à atteindre leurs clients idéaux et booster leurs résultats grâce à une stratégie publicitaire efficace.</p>
+        <h2>Boostez vos ventes avec des campagnes Facebook & Instagram Ads performantes</h2>
+        <p>Nous aidons les entreprises à atteindre leurs clients idéaux et maximiser leur ROI publicitaire.</p>
         <a href="#contact" class="btn-hero">Demandez votre audit gratuit</a>
     </div>
 </section>
@@ -39,65 +38,8 @@
 <section id="services">
     <div class="container">
         <h2>Nos Services</h2>
-        <div class="service-cards">
-            <div class="service-card">
-                <div class="icon">🔍</div>
-                <h3>Audit personnalisé</h3>
-                <p>Analyse complète de votre présence en ligne et recommandations stratégiques pour maximiser vos résultats.</p>
-                <a href="#contact" class="btn-service">Contacter</a>
-            </div>
-            <div class="service-card">
-                <div class="icon">📈</div>
-                <h3>Création de campagnes</h3>
-                <p>Conception de publicités adaptées à vos objectifs pour générer des prospects et ventes.</p>
-                <a href="#contact" class="btn-service">Contacter</a>
-            </div>
-            <div class="service-card">
-                <div class="icon">⚙️</div>
-                <h3>Optimisation continue</h3>
-                <p>Suivi et ajustement des campagnes pour maximiser le retour sur investissement.</p>
-                <a href="#contact" class="btn-service">Contacter</a>
-            </div>
-            <div class="service-card">
-                <div class="icon">📊</div>
-                <h3>Reporting détaillé</h3>
-                <p>Rapports clairs pour suivre vos performances et décisions marketing.</p>
-                <a href="#contact" class="btn-service">Contacter</a>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- WHY US -->
-<section id="why-us">
-    <div class="container">
-        <h2>Pourquoi Nous Choisir</h2>
-        <div class="why-cards">
-            <div class="why-card">
-                <div class="icon">🏆</div>
-                <h3>Expertise certifiée</h3>
-                <p>Notre équipe est spécialisée et certifiée Facebook Ads pour garantir les meilleurs résultats.</p>
-            </div>
-            <div class="why-card">
-                <div class="icon">🤝</div>
-                <h3>Approche personnalisée</h3>
-                <p>Chaque entreprise est unique, nous adaptons nos stratégies à vos besoins spécifiques.</p>
-            </div>
-            <div class="why-card">
-                <div class="icon">🚀</div>
-                <h3>Résultats rapides</h3>
-                <p>Optimisation constante pour booster vos conversions et votre chiffre d’affaires.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio">
-    <div class="container">
-        <h2>Nos Réalisations</h2>
-        <div id="company-list" class="portfolio-cards">
-            <!-- Les cartes entreprises seront générées par JS -->
+        <div class="service-cards" id="company-list">
+            <!-- Les services seront générés par JS -->
         </div>
     </div>
 </section>
@@ -127,10 +69,11 @@
         <form id="contact-form">
             <input type="text" id="name" placeholder="Votre nom" required>
             <input type="email" id="email" placeholder="Votre email" required>
-            <input type="text" id="company" placeholder="Votre entreprise" required>
+            <input type="text" id="company" placeholder="Nom de votre entreprise" required>
             <textarea id="message" placeholder="Votre message" required></textarea>
             <button type="submit">Envoyer</button>
         </form>
+        <p id="form-message"></p>
     </div>
 </section>
 
@@ -143,6 +86,7 @@
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
