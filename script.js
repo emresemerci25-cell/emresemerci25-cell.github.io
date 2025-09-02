@@ -7,14 +7,9 @@ const companies = [
 ];
 
 const companyList = document.getElementById('company-list');
-const searchInput = document.createElement('input'); // on peut mettre recherche ici si besoin
 
 function displayCompanies(list) {
     companyList.innerHTML = '';
-    if(list.length === 0){
-        companyList.innerHTML = '<p style="text-align:center; width:100%;">Aucune entreprise trouvée</p>';
-        return;
-    }
     list.forEach(company => {
         const card = document.createElement('div');
         card.className = 'card';
@@ -30,3 +25,10 @@ function displayCompanies(list) {
 
 displayCompanies(companies);
 
+// Formulaire contact
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Merci ! Votre message a été envoyé.');
+    form.reset();
+});
