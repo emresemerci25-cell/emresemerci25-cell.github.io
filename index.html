@@ -9,7 +9,7 @@
   :root{
     --bg:#f8fafc; --surface:#ffffff; --text:#0f172a; --muted:#64748b;
     --primary:#2563eb; --primary-700:#1e40af; --ring:rgba(37,99,235,.25);
-    --border:#e2e8f0; --dark-1:#0f3578; --dark-2:#0b1b3f; --radius:14px;
+    --border:#e2e8f0; --dark-1:#0f3578; --dark-2:#0b1b3f;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
@@ -51,7 +51,7 @@
 
   /* Cards services */
   .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:26px}
-  .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
+  .card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 6px 18px rgba(15,23,42,.06)}
   .card img{height:140px;object-fit:cover;border-radius:12px;margin-bottom:12px}
   .card p{color:#475569;font-size:.98rem}
 
@@ -69,7 +69,7 @@
   .step{background:#fff;border:1px solid var(--border);border-radius:16px;padding:18px}
   .step .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:9px;background:#eef2ff;color:#1e40af;font-weight:800;margin-bottom:8px}
 
-  /* Portfolio (images 100% stables) */
+  /* Portfolio */
   .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
   .portfolio img{border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,.06);aspect-ratio:3/2;object-fit:cover}
 
@@ -103,9 +103,6 @@
   .sticky-cta{position:fixed;right:16px;bottom:16px;z-index:60}
   .sticky-cta a{box-shadow:0 10px 22px rgba(37,99,235,.35)}
 
-  /* Footer */
-  .footer{padding:36px 0;border-top:1px solid var(--border);background:#fff;text-align:center}
-
   /* Responsive */
   @media (max-width:1024px){
     .cards{grid-template-columns:repeat(2,1fr)}
@@ -131,9 +128,10 @@
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo-wrap" href="#hero" aria-label="Accueil">
+      <!-- Logo SMC : texte plus petit dans le carré -->
       <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" aria-label="SMC logo">
         <rect x="0" y="0" width="60" height="60" rx="12" fill="#2563eb"/>
-        <text x="30" y="38" text-anchor="middle" font-size="28" font-family="Montserrat, Arial" font-weight="800" fill="#fff">SMC</text>
+        <text x="30" y="36" text-anchor="middle" font-size="22" font-family="Montserrat, Arial" font-weight="800" fill="#fff">SMC</text>
       </svg>
       <span class="logo-text">MARKETING</span>
     </a>
@@ -154,7 +152,7 @@
   <div class="container hero-grid">
     <div class="hero-left">
       <p class="kicker">FACEBOOK & INSTAGRAM ADS</p>
-      <h1>Boostez vos ventes avec <span style="color:#2563eb;">SMC MARKETING</span></h1>
+      <h1>Boostez vos ventes avec SMC MARKETING</h1>
       <p class="sub">Approche “Eskimoz-like” : créas testées en continu, tracking propre (CAPI), décisions guidées par les data.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Audit gratuit</a>
@@ -162,7 +160,7 @@
       </div>
     </div>
     <div class="hero-right">
-      <img loading="lazy" src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80" alt="Réunion marketing">
+      <img loading="lazy" src="https://picsum.photos/id/1025/1200/800" alt="Réunion marketing">
     </div>
   </div>
 </section>
@@ -171,7 +169,6 @@
 <section class="section" aria-label="Ils nous font confiance">
   <div class="container">
     <div class="brands">
-      <!-- Logos inline (jamais cassés) -->
       <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">NORDIC</text></svg></div>
       <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">ATLAS</text></svg></div>
       <div class="brand"><svg viewBox="0 0 200 40"><text x="100" y="28" text-anchor="middle">POLARIS</text></svg></div>
@@ -191,27 +188,15 @@
   </div>
 </section>
 
-<!-- FEATURES (foncé) -->
+<!-- FEATURES -->
 <section class="section dark">
   <div class="container">
     <h2>Levier d’acquisition complet</h2>
     <div class="features">
-      <div class="feature">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8 4 4 0 000-8z"/></svg></div>
-        <h3>Audience</h3><p>Volumes pertinents via créas testées + ciblages précis.</p>
-      </div>
-      <div class="feature">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 8v6l-4 2v-8L3 4z"/></svg></div>
-        <h3>Ciblage</h3><p>Intérêts, lookalikes, exclusions : on baisse le CPA, on scale.</p>
-      </div>
-      <div class="feature">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M18 12a6 6 0 11-6-6"/></svg></div>
-        <h3>Remarketing</h3><p>Séquences multi-formats pour convertir les audiences chaudes.</p>
-      </div>
-      <div class="feature">
-        <div class="icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3>Conversion</h3><p>Optimisation créa, budget & landing pour transformer en revenus.</p>
-      </div>
+      <div class="feature"><div class="icon"><svg viewBox="0 0 24 24"><path d="M12 8a4 4 0 100 8"/></svg></div><h3>Audience</h3><p>Volumes pertinents via créas testées + ciblages précis.</p></div>
+      <div class="feature"><div class="icon"><svg viewBox="0 0 24 24"><path d="M3 4h18l-7 8"/></svg></div><h3>Ciblage</h3><p>Intérêts, lookalikes, exclusions : on baisse le CPA, on scale.</p></div>
+      <div class="feature"><div class="icon"><svg viewBox="0 0 24 24"><path d="M18 12a6 6 0 11-6-6"/></svg></div><h3>Remarketing</h3><p>Séquences multi-formats pour convertir les audiences chaudes.</p></div>
+      <div class="feature"><div class="icon"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Conversion</h3><p>Optimisation créa, budget & landing pour transformer en revenus.</p></div>
     </div>
   </div>
 </section>
@@ -259,22 +244,10 @@
     <p class="kicker">QUESTIONS</p>
     <h2>FAQ</h2>
     <div class="faq">
-      <div class="faq-item">
-        <div class="faq-q">Quels résultats puis-je attendre ? <span>+</span></div>
-        <div class="faq-a">Objectif : baisser votre CPA et augmenter le volume de ventes. On démarre par un audit pour estimer le potentiel selon votre secteur, panier et historique.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Vous gérez aussi le tracking ? <span>+</span></div>
-        <div class="faq-a">Oui. On installe Pixel, CAPI, événements clés, et une nomenclature d’UTM propre pour remonter des données fiables.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Combien de temps pour voir des résultats ? <span>+</span></div>
-        <div class="faq-a">Généralement 2–4 semaines pour stabiliser les tests créas et audiences, puis on scale progressivement ce qui marche.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q">Vous faites les créas ? <span>+</span></div>
-        <div class="faq-a">On propose angles, scripts UGC, formats, et peut produire ou cadrer votre équipe pour des créas qui convertissent.</div>
-      </div>
+      <div class="faq-item"><div class="faq-q">Quels résultats puis-je attendre ? <span>+</span></div><div class="faq-a">Objectif : baisser votre CPA et augmenter le volume de ventes. On démarre par un audit pour estimer le potentiel selon votre secteur, panier et historique.</div></div>
+      <div class="faq-item"><div class="faq-q">Vous gérez aussi le tracking ? <span>+</span></div><div class="faq-a">Oui. On installe Pixel, CAPI, événements clés, et une nomenclature d’UTM propre pour remonter des données fiables.</div></div>
+      <div class="faq-item"><div class="faq-q">Combien de temps pour voir des résultats ? <span>+</span></div><div class="faq-a">Généralement 2–4 semaines pour stabiliser les tests créas et audiences, puis on scale progressivement ce qui marche.</div></div>
+      <div class="faq-item"><div class="faq-q">Vous faites les créas ? <span>+</span></div><div class="faq-a">On propose angles, scripts UGC, formats, et peut produire ou cadrer votre équipe pour des créas qui convertissent.</div></div>
     </div>
   </div>
 </section>
@@ -315,29 +288,16 @@ const burger = document.getElementById('burger');
 const nav = document.getElementById('nav');
 if(burger && nav){ burger.addEventListener('click', ()=> nav.classList.toggle('open')); }
 
-/* ===== Services (images HD stables) ===== */
+/* ===== Services (PICSUM, garanti) ===== */
 const SERVICES = [
-  { img:"https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80",
-    title:"Facebook Ads",
-    desc:"Création, tests A/B, scaling et baisse des CPA. On optimise chaque euro." },
-  { img:"https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=800&q=80",
-    title:"Instagram Ads",
-    desc:"Reels, carrousels & UGC pour convertir sur mobile et augmenter le ROAS." },
-  { img:"https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
-    title:"Stratégie Digitale",
-    desc:"Funnel clair, tracking propre (CAPI), reporting lisible, décisions rapides." },
-  { img:"https://images.unsplash.com/photo-1581092160562-040f07c96f4b?auto=format&fit=crop&w=800&q=80",
-    title:"Optimisation du ROI",
-    desc:"Pilotage budget, enchères & créas : on garde ce qui marche, on coupe le reste." },
-  { img:"https://images.unsplash.com/photo-1590402494682-cd06e3f7c7f3?auto=format&fit=crop&w=800&q=80",
-    title:"Tracking & Data",
-    desc:"Pixels, Conversions API, événements clés et dashboards actionnables." },
-  { img:"https://images.unsplash.com/photo-1551281044-8e8d0a75d2d5?auto=format&fit=crop&w=800&q=80",
-    title:"Reporting",
-    desc:"Rapports hebdo + reco concrètes. Focus résultats, pas blabla." }
+  { img:"https://picsum.photos/id/1015/800/600", title:"Facebook Ads", desc:"Création, tests A/B, scaling et baisse des CPA. On optimise chaque euro." },
+  { img:"https://picsum.photos/id/1011/800/600", title:"Instagram Ads", desc:"Reels, carrousels & UGC pour convertir sur mobile et augmenter le ROAS." },
+  { img:"https://picsum.photos/id/1005/800/600", title:"Stratégie Digitale", desc:"Funnel clair, tracking propre (CAPI), reporting lisible, décisions rapides." },
+  { img:"https://picsum.photos/id/1027/800/600", title:"Optimisation du ROI", desc:"Pilotage budget, enchères & créas : on garde ce qui marche, on coupe le reste." },
+  { img:"https://picsum.photos/id/1035/800/600", title:"Tracking & Data", desc:"Pixels, Conversions API, événements clés et dashboards actionnables." },
+  { img:"https://picsum.photos/id/1041/800/600", title:"Reporting", desc:"Rapports hebdo + reco concrètes. Focus résultats, pas blabla." }
 ];
-const serviceList = document.getElementById('service-list');
-serviceList.innerHTML = SERVICES.map(s => `
+document.getElementById('service-list').innerHTML = SERVICES.map(s => `
   <article class="card">
     <img loading="lazy" src="${s.img}" alt="${s.title}">
     <h3>${s.title}</h3>
@@ -346,7 +306,7 @@ serviceList.innerHTML = SERVICES.map(s => `
   </article>
 `).join('');
 
-/* ===== Portfolio (picsum = charge toujours) ===== */
+/* ===== Portfolio (PICSUM stable) ===== */
 const PORTFOLIO = [
   "https://picsum.photos/id/1011/1200/800",
   "https://picsum.photos/id/1040/1200/800",
@@ -358,7 +318,7 @@ const PORTFOLIO = [
 document.getElementById('portfolio-grid').innerHTML =
   PORTFOLIO.map((src,i)=>`<img loading="lazy" src="${src}" alt="Campagne ${i+1}">`).join('');
 
-/* ===== Testimonials (monogrammes, slider OK) ===== */
+/* ===== Testimonials (monogrammes) ===== */
 const TESTIMONIALS = [
   { initials:"SL", name:"Sophie L.", text:"« +40% de CA en 8 semaines. Méthode sérieuse, esprit “Eskimoz-like”. »", avatarClass:"avatar-1" },
   { initials:"KB", name:"Karim B.",  text:"« ROAS en hausse, équipe réactive, tracking clean. »",                  avatarClass:"avatar-2" },
@@ -391,13 +351,7 @@ document.querySelectorAll('.faq-item').forEach(item=>{
 /* ===== Smooth scroll ===== */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
-    const id = a.getAttribute('href');
-    if(id && id.length>1){
-      e.preventDefault();
-      const el = document.querySelector(id);
-      if(el){ el.scrollIntoView({behavior:'smooth', block:'start'}); }
-      if(nav){ nav.classList.remove('open'); }
-    }
+    const id = a.getAttribute('href'); if(id && id.length>1){ e.preventDefault(); const el=document.querySelector(id); if(el){ el.scrollIntoView({behavior:'smooth'}); } nav.classList.remove('open'); }
   });
 });
 
