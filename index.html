@@ -7,37 +7,105 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    <!-- HEADER -->
     <header>
-        <h1>Agence SMMA Pro</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>Agence SMMA Pro</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Témoignages</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
+    <!-- HERO -->
     <section id="home" class="hero">
-        <h2>Nous faisons grandir votre business sur les réseaux sociaux</h2>
-        <p>Stratégie digitale, marketing, community management et publicité ciblée pour booster vos ventes.</p>
+        <div class="container">
+            <h2>Boostez votre visibilité avec notre expertise Facebook Ads</h2>
+            <p>Attirez plus de clients grâce à des campagnes publicitaires ciblées et efficaces.</p>
+            <a href="#contact" class="btn">Demandez un audit gratuit</a>
+        </div>
     </section>
 
-    <section id="about" class="about">
-        <h2>À propos de nous</h2>
-        <p>Agence spécialisée dans le marketing digital et la gestion des réseaux sociaux pour entreprises ambitieuses. Notre mission : maximiser votre visibilité et vos revenus en ligne.</p>
-    </section>
-
+    <!-- SERVICES -->
     <section id="services" class="services">
-        <h2>Nos Services</h2>
-        <div class="service-list">
-            <div class="card">
-                <h3>Community Management</h3>
-                <p>Gestion quotidienne de vos réseaux sociaux pour créer une communauté engagée.</p>
+        <div class="container">
+            <h2>Nos Services</h2>
+            <div class="service-list">
+                <div class="card">
+                    <h3>Audit personnalisé</h3>
+                    <p>Analyse complète de votre présence en ligne et recommandations stratégiques.</p>
+                </div>
+                <div class="card">
+                    <h3>Création de campagnes</h3>
+                    <p>Conception de publicités adaptées à vos objectifs pour maximiser les résultats.</p>
+                </div>
+                <div class="card">
+                    <h3>Optimisation continue</h3>
+                    <p>Suivi et ajustement de vos campagnes pour améliorer le ROI.</p>
+                </div>
+                <div class="card">
+                    <h3>Reporting détaillé</h3>
+                    <p>Rapports clairs et complets pour suivre vos performances et décisions.</p>
+                </div>
             </div>
-            <div class="card">
-                <h3>Publicités Facebook & Instagram</h3>
+        </div>
+    </section>
 
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Nos Réalisations</h2>
+            <div id="company-list">
+                <!-- Les cartes entreprises seront générées ici par JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2>Témoignages Clients</h2>
+            <div class="testimonial-list">
+                <div class="card">
+                    <p>"Grâce à Agence SMMA Pro, nos ventes ont augmenté de 35% en 2 mois !" - Sophie L.</p>
+                </div>
+                <div class="card">
+                    <p>"Professionnels et réactifs, ils ont transformé notre présence en ligne." - Karim B.</p>
+                </div>
+                <div class="card">
+                    <p>"Une équipe passionnée et efficace, résultats rapides." - Laura M.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contactez-nous</h2>
+            <form id="contact-form">
+                <input type="text" id="name" placeholder="Votre nom" required>
+                <input type="email" id="email" placeholder="Votre email" required>
+                <textarea id="message" placeholder="Votre message" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>© 2025 Agence SMMA Pro - Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
