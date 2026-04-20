@@ -61,7 +61,7 @@
   .hero {
     min-height: 100vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 58% 42%;
     position: relative;
     overflow: hidden;
   }
@@ -153,7 +153,7 @@
   .hero-right {
     background: var(--orange);
     display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 48px 80px 56px;
+    padding: 140px 32px 80px 36px;
     position: relative; overflow: hidden;
     animation: fadeUp 0.7s 0.2s ease both;
   }
@@ -195,20 +195,20 @@
   .stat-card {
     background: rgba(255,255,255,0.12);
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 20px; padding: 24px 22px;
+    border-radius: 16px; padding: 16px 18px;
     backdrop-filter: blur(4px);
     transition: background 0.2s;
   }
   .stat-card:hover { background: rgba(255,255,255,0.18); }
 
-  .stat-card-icon { font-size: 22px; margin-bottom: 14px; display: block; }
+  .stat-card-icon { font-size: 18px; margin-bottom: 8px; display: block; }
 
   .stat-card-val {
     font-family: 'Outfit', sans-serif;
-    font-size: 36px; font-weight: 800;
-    color: white; line-height: 1; margin-bottom: 6px;
+    font-size: 26px; font-weight: 800;
+    color: white; line-height: 1; margin-bottom: 4px;
   }
-  .stat-card-val sup { font-size: 18px; vertical-align: super; }
+  .stat-card-val sup { font-size: 14px; vertical-align: super; }
 
   .stat-card-label {
     font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4;
@@ -377,6 +377,7 @@
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
     .nav-links { display: none; }
+    .nav-logo { font-size: 20px; }
 
     .hero { grid-template-columns: 1fr; }
 
@@ -386,10 +387,7 @@
     .hero-buttons { justify-content: center; }
     .hero-stats { justify-content: center; gap: 0; }
 
-    .hero-right { padding: 48px 24px 64px; }
-    .hero-right-deco { font-size: 120px; }
-    .stats-grid { grid-template-columns: 1fr 1fr; }
-    .stat-card-wide { grid-column: span 2; }
+    .hero-right { display: none; }
 
     .section-video { padding: 72px 24px; }
     .video-grid { grid-template-columns: 1fr; }
@@ -400,10 +398,7 @@
     .section-process, .section-cta { padding: 72px 24px; }
     footer { padding: 32px 24px; }
   }
-
   @media (max-width: 500px) {
-    .stats-grid { grid-template-columns: 1fr; }
-    .stat-card-wide { grid-column: span 1; flex-direction: column; align-items: flex-start; }
     .video-side { flex-direction: column; }
     .hero-stats { flex-wrap: wrap; gap: 16px; }
     .hero-stat { border-right: none; margin-right: 0; padding-right: 0; }
@@ -414,9 +409,9 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
+ <a href="#" class="nav-logo">
   <img src="ton-logo.png" alt="MAVERA" style="height: 36px; width: auto;">
-</a>
+  </a>
   <div class="nav-links">
     <a href="#services">Services</a>
     <a href="#process">Process</a>
